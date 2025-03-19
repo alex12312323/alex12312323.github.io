@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шифрование</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+h1, h2 {
+    color: #003366; /* Синий цвет для заголовков */
+}
+header h1 {
+    color: #fff; /* Белый цвет для заголовка в заголовке */
+}
+strong {
+    color: #003366; /* Синий цвет для всех элементов <strong> */
+}
+   body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white; /* Белый фон */
+     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 85%, rgba(0, 123, 255, 1) 100%); /* Ярко-синий градиент внизу */
+}
+
+header {
+    background-color: #0056b3; /* Темнее синий цвет заголовка */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.hero-image img {
+    width: 50%; /* Занимает всю ширину родительского блока */
+    height: auto; /* Автоматическая высота, сохраняется пропорция */
+    border-radius: 15px; /* Закругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для изображения, чтобы улучшить визуальный эффект */
+}
+
+.content {
+    padding: 20px;
+}
+
+.box {
+    background-color: white; /* Белый фон для блоков */
+    border: 2px solid #007bff; /* Синий бордер */
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.photo-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Расстояние между изображениями */
+}
+
+.photo-box {
+    flex: 1 0 30%; /* Выдерживать пропорции для большего размера */
+}
+
+.photo {
+    width: 100%; /* Фотография занимает всю ширину родительского элемента */
+    height: auto; /* Сохраняет пропорции изображения */
+    cursor: pointer; /* Указывает, что изображение кликабельно */
+    transition: transform 0.2s; /* Плавный эффект при наведении */
+}
+
+.photo:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+
+
+
+#caption {
+    margin: 15px;
+    text-align: center;
+    color: white; /* Цвет текста для описания */
+    font-size: 20px; /* Размер текста */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white; /* Цвет close*/
+    font-size: 40px; /* Размер close*/
+    font-weight: bold;
+    cursor: pointer; /* Указывает, что элемент кликабелен */
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb; /* Изменение цвета при наведении */
+    text-decoration: none; /* Убирает подчеркивание */
+    cursor: pointer; /* Указывает, что элемент кликабелен */
+}
+
+
+footer {
+    text-align: center;
+    background-color: #0056b3;
+    color: white;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white; /* Белый цвет текста */
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Добавлено изменение цвета текста */
+    background-color: #007bff; /* Синий фон по умолчанию (можно изменить) */
+}
+
+.menu a:hover {
+    background-color: #0056b3; /* Более темный синий при наведении */
+    color: white; /* Текст остается белым */
+}
+
+
+  .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f0f0f0; /* Светло-серый фон */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Поверх всех элементов */
+            display: none; /* Скрыто по умолчанию */
+        }
+        .popup h1 {
+            margin: 0;
+            color: #003366; 
+        }
+        .close-btn {
+            background-color: #003366; 
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .close-btn:hover {
+            background-color: #003366; 
+        }
+  .crypto-image {
+        width: 500px; /* Задайте желаемую ширину */
+        height: 250px; /* Задайте желаемую высоту */
+        object-fit: cover; /* Обрезка изображения, чтобы оно соответствовало размерам */
+        border-radius: 10px; /* Закругление углов (по желанию) */
+    }
+
+</style>
+<body>
+    <header>
+        <h1>Шифрование</h1>
+         <div class="container">
+            <div class="menu">
+                <a href="магазин.html">Магазин</a>
+               <a href="окнафреймы.html">Фреймовое окно</a>
+                <a href="калин.html">Шифрование</a>
+                <a href="удмур.html">Методы защиты</a>
+                <a href="oнас.html">О нас</a>
+<a href="телефонсправочник.html">Справочник</a>
+<a href="login.html">Авторизация</a>
+            </div>
+        </div>
+    </header>
+
+   <center>
+            <h2>Методы шифрования</h2>
+                </center>
+<div>
+    <figure>
+        <center>
+            <img src="img_30.png" alt="Симметричное шифрование" class="crypto-image">
+            <figcaption>Симметричное шифрование: Используется один и тот же ключ для шифрования и расшифровки данных.</figcaption>
+        </center>
+    </figure>
+    <figure>
+        <center>
+            <img src="img_31.png" alt="Асимметричное шифрование" class="crypto-image">
+            <figcaption>Асимметричное шифрование: Используются две пары ключей (публичный и приватный) для шифрования и расшифровки.</figcaption>
+        </center>
+    </figure>
+<p>
+    <figure>
+        <center>
+            <img src="img_32.png" alt="Хеширование" class="crypto-image">
+
+            <figcaption>Хеширование: Преобразует данные в фиксированный размер с использованием хеш-функций, обеспечивая целостность.</figcaption>
+        </center>
+    </figure>
+</div>
+
+
+
+
+
+
+                </figure>
+            </div>
+        </div>
+    </section>
+        <div class="box">
+            <h2>Что такое шифрование?</h2>
+            <p>
+               <strong> Шифрование</strong> — это процесс преобразования информации или данных в код, чтобы предотвратить несанкционированный доступ к ней.
+                Оно защищает данные, обеспечивая конфиденциальность, целостность и аутентификацию. Шифрование может использоваться
+                для защиты данных как во время их передачи, так и в состоянии покоя.
+            </p>
+            <p>
+                В современном мире, где данные становятся самым ценным ресурсом, шифрование играет ключевую роль в обеспечении
+                информационной безопасности. Особенно важно защищать личные данные, финансовую информацию и корпоративные тайны.
+                Способы шифрования делятся на две основные категории: симметричное и асимметричное.
+            </p>
+            <p>
+                <strong>Симметричное шифрование</strong>: Этот метод использует один и тот же ключ для шифрования и расшифровки данных.
+                Это означает, что обе стороны должны иметь доступ к секретному ключу. Примеры алгоритмов симметричного шифрования
+                включают AES (Advanced Encryption Standard) и DES (Data Encryption Standard). Главными преимуществами
+                симметричного шифрования являются высокая скорость и эффективность обработки данных, однако, главные проблемы связаны с безопасным распространением ключей.
+            </p>
+            <p>
+                <strong>Асимметричное шифрование</strong>: В отличие от симметричного, этот метод использует пару ключей —
+                публичный и приватный. Публичный ключ используется для шифрования данных, а приватный — для расшифровки.
+                Альгоритмы, такие как RSA (Rivest-Shamir-Adleman), являются популярными примерами асимметричного шифрования.
+                Хотя асимметричное шифрование обычно медленнее, оно позволяет безопасно обмениваться ключами и передавать данные через
+                открытые или ненадежные сети без риска их перехвата.
+            </p>
+            <p>
+                <strong>Хеширование</strong>: Несмотря на то, что это не является методом шифрования, хеширование также
+                является важным аспектом защиты данных. Хеширование превращает данные в фиксированный размер с использованием
+                хеш-функций (например, SHA-256). Оно обеспечивает целостность данных, так как любое изменение во входных данных
+              приведет к значительному изменению их хеша. Хеширование широко используется для проверки подлинности данных и паролей.
+            </p>
+            <p>
+                Использование шифрования и методов защиты данных становится все более важным с каждым годом, поскольку количество
+                киберугроз и атак постоянно растет. Применение современных методов шифрования помогает защитить конфиденциальные
+                данные, предотвращая их утечку и обеспечивая безопасность информации в цифровом мире.
+            </p>
+        </div>
+
+
+    <footer>
+        <p>&copy; 2023 Информационная безопасность. Все права защищены.</p>
+
+    </footer>
+<script>
+
+
+ function getHolidayGreeting() {
+            const today = new Date(); // Получаем текущую дату
+            const month = today.getMonth() + 1; // Месяцы от 0 до 11
+            const day = today.getDate(); // Получаем число
+            let greeting;
+
+            // Определяем праздник
+            if (month === 1 && day === 1) {
+                greeting = "С Новым годом!";
+            } else if (month === 3 && day === 8) {
+                greeting = "С Международным женским днем!";
+            } else if (month === 2 && day === 23) {
+                greeting = "С Днем защитника Отечества!";
+            } else if (month === 5 && day === 1) {
+                greeting = "С Первомаем!";
+            } else if (month === 5 && day === 9) {
+                greeting = "С Днем Победы!";
+            } else if (month === 12 && day === 31) {
+                greeting = "С наступающим Новым годом!";
+            } else {
+                greeting = "Сегодня нет праздников, но вы не расстраивайтесь!Держите промокод на покупку курсов:ШИФР666";
+            }
+
+            document.getElementById("greeting").innerText = greeting; // Устанавливаем поздравление
+            document.getElementById("holidayPopup").style.display = "block"; // Показываем всплывающее окно
+        }
+
+        function closePopup() {
+            document.getElementById("holidayPopup").style.display = "none"; // Скрываем всплывающее окно
+        }
+
+        // Вызываем функцию при загрузке страницы
+        window.onload = getHolidayGreeting;
+
+</script>
+
+ <div class="popup" id="holidayPopup">
+        <h1 id="greeting"></h1>
+        <button class="close-btn" onclick="closePopup()">Закрыть</button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программное обеспечение для защиты</title>
+    <style>
+header {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF; /* Белый фон */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #003366; 
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            width: calc(33.3% - 20px); /* Ширина для трех элементов в строке с отступами */
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #FFFFFF; /* Белый фон для элементов галереи */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .description {
+            padding: 10px;
+            text-align: center;
+            color: #003366; /* Темно-серый текст */
+        }
+
+        .store-hours {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #FFFFFF; 
+            border: 1px solid #003366;;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .store-hours h2 {
+            color: #003366; /* Королевский синий */
+        }
+
+        /* Стили для графика работы */
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .hours-table th, .hours-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .hours-table th {
+            background-color: #003366;
+            color: white;
+        }
+
+        .open {
+            background-color: #d4edda; /* Зеленый для открыт */
+        }
+
+        .closed {
+            background-color: #f8d7da; /* Красный для закрыт */
+        }
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Стили для меню */
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white; /* Белый цвет текста */
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Добавлено изменение цвета текста */
+    background-color: #007bff; /* Синий фон по умолчанию (можно изменить) */
+}
+
+.menu a:hover {
+    background-color: #0056b3; /* Более темный синий при наведении */
+    color: white; /* Текст остается белым */
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="menu">
+<a href="index.html">Главная</a>
+               <a href="окнафреймы.html">Фреймовые окна</a>
+                <a href="вузы.html">Вузы</a>
+                <a href="текстовый редактор.html">Редактор документов</a>
+<a href="телефонсправочник.html">Справочник телефонов</a>
+<a href="справочникулицы.html">Улицы</a>
+
+    
+
+               
+                    <a href="калин.html">Шифрование</a>
+<a href="register.html">Регистрация</a>
+
+        </div>
+<body>
+    <div class="container">
+        <h1> Программное обеспечение для защиты</h1>
+
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="photo_2025-03-14_09-17-51.jpg" alt="Антивирусные программы">
+                <div class="description">
+                    <h3>Антивирусные программы</h3>
+                    <p>Защита от вирусов, вредоносного ПО и шпионских программ.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="photo_2025-03-14_09-21-47.jpg" alt="Файрволы">
+                <div class="description">
+                    <h3>Файрволы</h3>
+                    <p>Софт для контроля входящего и исходящего трафика.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="photo_2025-03-14_09-22-15.jpg" alt="Программы для шифрования">
+                <div class="description">
+                    <h3>Программы для шифрования</h3>
+                    <p>Инструменты для шифрования файлов и коммуникаций.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="store-hours">
+            <h2>График работы магазина</h2>
+
+            <table class="hours-table">
+                <thead>
+                    <tr>
+                        <th>День недели</th>
+                        <th>Время работы</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Пн - Пт</td>
+                        <td class="open">09:00 - 19:00</td>
+                    </tr>
+                    <tr>
+                        <td>Сб</td>
+                        <td class="open">10:00 - 16:00</td>
+                    </tr>
+                    <tr>
+                        <td>Вс</td>
+                        <td class="closed">Закрыто</td>
+                    </tr>
+                    <tr>
+                        <td>Праздники</td>
+                        <td class="closed">Закрыто</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+

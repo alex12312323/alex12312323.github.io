@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информационная безопасность</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+header h1 {
+    color: #fff; /* Белый цвет для заголовка в заголовке */
+}
+h1, h2 {
+    color: #003366; /* Синий цвет для заголовков */
+}
+
+
+header {
+    background-color: #0056b3; /* Темнее синий цвет заголовка */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.hero-image img {
+    width: 50%; /* Занимает всю ширину родительского блока */
+    height: auto; /* Автоматическая высота, сохраняется пропорция */
+    border-radius: 15px; /* Закругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для изображения, чтобы улучшить визуальный эффект */
+}
+
+.content {
+    padding: 20px;
+}
+.content {
+    display: flex; /* Flexbox для центровки */
+    justify-content: center; /* Центруем по горизонтали */
+    align-items: center; /* Центруем по вертикали */
+
+}
+
+.hero-image {
+    position: relative; /* Для абсолютного позиционирования глянца */
+}
+
+.styled-image {
+    display: block; /* Делает изображение блочным элементом */
+    max-width: 100%; /* Адаптивная ширина */
+    height: auto; /* Сохраняем пропорции */
+    border: 5px solid #e0e0e0; /* Светлая рамка вокруг изображения */
+    border-radius: 10px; /* Скругление углов рамки */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для глубины */
+}
+
+/* Эффект глянца */
+.gloss {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)); /* Град с эффекта блеска */
+    border-radius: 10px; /* Скругляем углы вместе с изображением */
+    pointer-events: none; /* Игнорирует события мыши */
+    opacity: 0.8; /* Прозрачность глянца */
+}
+
+.box {
+    background-color: white; /* Белый фон для блоков */
+    border: 2px solid #007bff; /* Синий бордер */
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.photo-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.photo-box {
+    margin: 10px;
+    position: relative; /* Added for better positioning */
+    width: 300px;
+
+}
+
+.photo {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block; /* Makes the image a block-level element */
+}
+
+.photo-box figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0056b3;
+    color: white;
+    padding: 5px 10px;
+    text-align: center; /* Center the text */
+}
+
+
+footer {
+    text-align: center;
+    background-color: #0056b3;
+    color: white;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white; /* Белый цвет текста */
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Добавлено изменение цвета текста */
+    background-color: #007bff; /* Синий фон по умолчанию (можно изменить) */
+}
+
+.menu a:hover {
+    background-color: #0056b3; /* Более темный синий при наведении */
+    color: white; /* Текст остается белым */
+}
+   .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f0f0f0; 
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Поверх всех элементов */
+            display: none; /* Скрыто по умолчанию */
+        }
+        .popup h1 {
+            margin: 0;
+            color: #007bff; 
+        }
+        .close-btn {
+            background-color: #007bff; 
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .close-btn:hover {
+            background-color: #007bff; 
+        }
+</style>
+<body>
+
+    <header>
+        <h1>Телефонный справочник</h1>
+         <div class="container">
+            <div class="menu">
+              <a href="магазин.html">Магазин</a>
+              
+                <a href="калин.html">Шифрование</a>
+                <a href="удмур.html">Методы защиты</a>
+
+               
+                <a href="oнас.html">О нас</a>
+
+<a href="register.html">Регистрация</a>
+
+            </div>
+        </div>
+    </header>
+ <div class="container">
+        <h1>Поиск номеров телефонов</h1>
+        <p class="instruction">Введите название профессии, например: "бухгалтер", "программист", "директор", "маркетолог", "дизайнер", "инженер"</p>
+        
+        <input type="text" id="searchInput" placeholder="Введите профессию...">
+        <button id="searchButton">Поиск</button>
+        
+        <h2>Результаты поиска:</h2>
+        <ul id="phoneList"></ul>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+    <script>
+// script.js
+// script.js
+
+// Примерный список профессий и их телефонов
+const phoneBook = [
+    { profession: 'бухгалтер', phone: '+7 (123) 456-78-90' },
+    { profession: 'программист', phone: '+7 (234) 567-89-01' },
+    { profession: 'менеджер', phone: '+7 (345) 678-90-12' },
+    { profession: 'директор', phone: '+7 (456) 789-01-23' },
+    { profession: 'маркетолог', phone: '+7 (567) 890-12-34' },
+    { profession: 'дизайнер', phone: '+7 (678) 901-23-45' },
+    { profession: 'инженер', phone: '+7 (789) 012-34-56' },
+];
+
+// Функция для поиска телефонов по профессии
+function searchPhones() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const filteredPhones = phoneBook.filter(entry => 
+        entry.profession.toLowerCase().includes(input)
+    );
+
+    displayPhones(filteredPhones);
+}
+
+// Функция для отображения результатов поиска
+function displayPhones(filteredPhones) {
+    const phoneList = document.getElementById('phoneList');
+    phoneList.innerHTML = ''; // очищаем предыдущий список
+
+    if (filteredPhones.length > 0) {
+        filteredPhones.forEach(entry => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${entry.profession}: ${entry.phone}`;
+            phoneList.appendChild(listItem);
+        });
+    } else {
+        const listItem = document.createElement('li');
+        listItem.textContent = 'Телефоны не найдены.';
+        phoneList.appendChild(listItem);
+    }
+}
+
+// Обработчик события для кнопки поиска
+document.getElementById('searchButton').addEventListener('click', searchPhones);
+
+    </script>
+</body>
+</html>
+
+
+   
+</body>
+</html>
