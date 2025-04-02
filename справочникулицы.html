@@ -257,60 +257,57 @@ footer {
     </header>
 
 <body>
-<body>
-<center>
     <header>
-        <h1>Справочник Предприятий связанные с Программированием</h1>
-<p> Введите интересующее Вас Предприятие:  Завод, Академия, Научный, Центр, Школа.
+        <h1>Справочник Предприятий Робототехники</h1>
+<p> Введите: Школа, Завод, Академия, Научный, Центр, Инжиниринг.
     </header>
     <main>
-<p>
         <input type="text" id="cityInput" placeholder="Введите город...">
         <input type="text" id="searchInput" placeholder="Введите название предприятия...">
         <button id="searchButton">Поиск</button>
         <div id="result"></div>
     </main>
-   </center>
+   
     <script src="script.js"></script>
 </body>
-</html>
 
 
-<center>
+
+
 <script>
 // Объект с информацией о предприятиях по городам
 const companyData = {
     'Ковров': {
         'Школа': {
             address: 'ул. Учебная, 1',
-            profile: 'Обучение основам программирования',
+            profile: 'Обучение основам робототехники',
             website: 'http://schoolrobotics.com'
         },
         'Завод Роботов': {
             address: 'ул. Заводская, 10',
-            profile: 'Производство программных систем',
+            profile: 'Производство роботизированных систем',
             website: 'http://robotfactory.com'
         },
         'Центр Инновационных Технологий': {
             address: 'ул. Технологий, 5',
-            profile: 'Исследования в области программирования',
+            profile: 'Исследования в области робототехники',
             website: 'http://inno-tech.com'  
         }
     },
     'Москва': {
         'Академия ': {
             address: 'ул. Академическая, 15',
-            profile: 'Курсы по программированию',
+            profile: 'Курсы по робототехнике',
             website: 'http://robotacademy.com'
         },
         'Научный ': {
             address: 'ул. Научная, 3',
-            profile: 'Научные разработки',
+            profile: 'Научные разработки в робототехнике',
             website: 'http://roboticsinstitute.com'
         },
         'Инжиниринг': {
             address: 'ул. Инженеров, 12',
-            profile: 'Инженерные решения для программирования',
+            profile: 'Инженерные решения для робототехники',
             website: 'http://robotengineering.com'
         }
     }
@@ -344,7 +341,7 @@ document.getElementById('searchButton').addEventListener('click', function() {
     }
 });
 
-</center>
+
 </script>
 </body>
 
