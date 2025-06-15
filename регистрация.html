@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Регистрация</title>
 <style>
-
-
 * {
     margin: 0;
     padding: 0;
@@ -17,20 +15,19 @@
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
-    zoom: 0.8;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* Обертка основного контента, чтобы занимать пространство между шапкой и подвалом */
+/* Обертка основного контента */
 .wrapper {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 20px 60px; /* отступ снизу под подвал */
+    padding: 40px 20px; /* Уменьшенные отступы */
     position: relative;
     overflow: hidden;
 }
@@ -45,16 +42,14 @@ body {
     background: rgba(0, 0, 0, 0.9);
     padding: 20px;
     transition: right 0.3s;
-    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.5); /* тень с левого края */
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     display: flex;
     flex-direction: column;
 }
-
 .sidebar.active {
     right: 0; /* открываем в правом краю */
 }
-
 .sidebar a {
     color: white;
     margin: 15px 0;
@@ -62,7 +57,6 @@ body {
     font-size: 18px;
     transition: color 0.3s;
 }
-
 .sidebar a:hover {
     color: #ff7f00;
 }
@@ -80,7 +74,6 @@ body {
     cursor: pointer;
     z-index: 1100;
 }
-
 .burger div {
     height: 4px;
     background-color: white;
@@ -100,12 +93,10 @@ body {
     display: flex;
     flex-direction: column;
 }
-
 .register-form h2 {
     margin-bottom: 20px;
     text-align: center;
 }
-
 .register-form input {
     margin-bottom: 15px;
     padding: 12px;
@@ -113,7 +104,6 @@ body {
     border-radius: 5px;
     font-size: 16px;
 }
-
 .register-form button {
     padding: 12px;
     background-color: #ff7f00;
@@ -123,7 +113,6 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 .register-form button:hover {
     background-color: #e76f00;
 }
@@ -131,7 +120,7 @@ body {
 /* Подвал */
 footer {
     background-color: #000;
-    padding: 150px 30px;
+    padding: 20px; /* Уменьшенные отступы */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -139,22 +128,18 @@ footer {
     font-size: 14px;
     flex-shrink: 0;
 }
-
 .footer-left {
     max-width: 50%;
 }
-
 .footer-right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     max-width: 50%;
 }
-
 .socials {
     margin-bottom: 8px;
 }
-
 .socials a {
     color: white;
     margin-left: 15px;
@@ -163,11 +148,9 @@ footer {
     font-weight: bold;
     font-size: 16px;
 }
-
 .socials a:hover {
     color: #ff7f00;
 }
-
 .site-title {
     font-weight: bold;
     font-size: 16px;
@@ -178,52 +161,17 @@ footer {
     body {
         zoom: 1; /* Убираем уменьшение для мобильных */
     }
-
     .wrapper {
-        padding: 60px 10px; /* Меньше заполнения на мобильных */
+        padding: 30px 10px; /* Меньше заполнения на мобильных */
     }
-
     .sidebar {
         width: 200px; /* Уменьшаем ширину бокового меню */
     }
-
     .sidebar a {
+
         font-size: 16px; /* Уменьшаем размер шрифта */
-  }
-
-    .burger {
-        top: 15px; /* Увеличиваем отступ для кнопки-бургера */
-        left: 15px;
-    }
-
-    .register-form {
-        padding: 30px; /* Уменьшаем отступ внутри формы */
-    }
-
-    footer {
-        padding: 100px 20px; /* Уменьшаем отступы вокруг подвала */
-        flex-direction: column; /* Упрощаем компоновку для мобильных */
-        align-items: center; /* Центрируем контент */
-        text-align: center; /* Центрируем текст */
-    }
-
-    .footer-left, .footer-right {
-        max-width: 100%; /* Убираем ограничение по ширине для мобильных */
-    }
-
-    .socials {
-        margin-bottom: 15px; /* Увеличиваем отступ между соц. ссылками */
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 
