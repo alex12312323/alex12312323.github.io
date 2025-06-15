@@ -6,7 +6,6 @@
 <title>Авторизация с меню справа</title>
 <style>
 
-
 * {
     margin: 0;
     padding: 0;
@@ -16,19 +15,19 @@
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
-    zoom: 0.8;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
+/* Обертка основного контента */
 .wrapper {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 20px 60px;
+    padding: 60px 20px; /* Уменьшенные отступы */
     position: relative;
     overflow: hidden;
 }
@@ -37,7 +36,7 @@ body {
 .sidebar {
     position: fixed;
     top: 0;
-    right: -250px;
+    right: -250px; /* Изначально блочный справа за экраном */
     width: 250px;
     height: 50vh;
     background: rgba(0, 0, 0, 0.9);
@@ -48,11 +47,9 @@ body {
     display: flex;
     flex-direction: column;
 }
-
 .sidebar.active {
-    right: 0;
+    right: 0; /* открываем в правом краю */
 }
-
 .sidebar a {
     color: white;
     margin: 15px 0;
@@ -60,7 +57,6 @@ body {
     font-size: 18px;
     transition: color 0.3s;
 }
-
 .sidebar a:hover {
     color: #ff7f00;
 }
@@ -78,7 +74,6 @@ body {
     cursor: pointer;
     z-index: 1100;
 }
-
 .burger div {
     height: 4px;
     background-color: white;
@@ -86,6 +81,7 @@ body {
     transition: 0.3s;
 }
 
+/* Форма авторизации */
 .auth-form {
     background: rgba(0, 0, 0, 0.7);
     padding: 40px;
@@ -97,12 +93,10 @@ body {
     display: flex;
     flex-direction: column;
 }
-
 .auth-form h2 {
     margin-bottom: 20px;
     text-align: center;
 }
-
 .auth-form input {
     margin-bottom: 15px;
     padding: 12px;
@@ -110,7 +104,6 @@ body {
     border-radius: 5px;
     font-size: 16px;
 }
-
 .auth-form button {
     padding: 12px;
     background-color: #ff7f00;
@@ -120,14 +113,14 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 .auth-form button:hover {
     background-color: #e76f00;
 }
 
+/* Подвал */
 footer {
     background-color: #000;
-    padding: 180px 40px;
+    padding: 20px; /* Уменьшенные отступы */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -135,22 +128,18 @@ footer {
     font-size: 14px;
     flex-shrink: 0;
 }
-
 .footer-left {
     max-width: 50%;
 }
-
 .footer-right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     max-width: 50%;
 }
-
 .socials {
     margin-bottom: 8px;
 }
-
 .socials a {
     color: white;
     margin-left: 15px;
@@ -159,60 +148,49 @@ footer {
     font-weight: bold;
     font-size: 16px;
 }
-
 .socials a:hover {
     color: #ff7f00;
 }
-
 .site-title {
     font-weight: bold;
     font-size: 16px;
 }
 
-/* Для мобильных устройств */
+/* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
     body {
         zoom: 1; /* Убираем уменьшение для мобильных */
     }
-
     .wrapper {
-        padding: 60px 10px; /* Меньше заполнения на мобильных */
+        padding: 40px 10px; /* Уменьшенные отступы для мобильных */
     }
-
     .sidebar {
         width: 200px; /* Уменьшаем ширину бокового меню */
     }
-
     .sidebar a {
         font-size: 16px; /* Уменьшаем размер шрифта */
     }
-
     .burger {
         top: 15px; /* Увеличиваем отступ для кнопки-бургера */
         left: 15px;
     }
-
     .auth-form {
+
         padding: 30px; /* Уменьшаем отступ внутри формы */
     }
-
     footer {
-        padding: 100px 20px; /* Уменьшаем отступы вокруг подвала */
-
+        padding: 20px; /* Уменьшаем отступы вокруг подвала */
         flex-direction: column; /* Упрощаем компоновку для мобильных */
         align-items: center; /* Центрируем контент */
         text-align: center; /* Центрируем текст */
     }
-
     .footer-left, .footer-right {
         max-width: 100%; /* Убираем ограничение по ширине для мобильных */
     }
-
     .socials {
         margin-bottom: 15px; /* Увеличиваем отступ между соц. ссылками */
     }
 }
-
 
 
 
