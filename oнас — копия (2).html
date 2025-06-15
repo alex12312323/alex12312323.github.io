@@ -5,167 +5,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О нас</title>
     <style>
-        * {
-          
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
-zoom: 0.8; /* Уменьшает весь контент до 80% от оригинального размера */
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
+    zoom: 1; /* Изменяем масштаб на 100% для адекватного отображения */
+}
 
-        header {
-          
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background: rgba(0, 0, 0, 0.7);
-            position: relative;
-        }
+header {
+    display: flex; /* Убедимся, что это флекс-контейнер */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.7);
+    position: relative;
+}
 
-        .menu-icon {
-            cursor: pointer;
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            position: relative;
-        }
+.menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
 
-        .menu-icon div {
-            background: white;
-            height: 4px;
-            width: 100%;
-            position: absolute;
-            transition: 0.3s;
-        }
+.menu-icon div {
+    background: white;
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    transition: 0.3s;
+}
 
-        .menu-icon div:nth-child(1) {
-            top: 0;
-        }
+.menu-icon div:nth-child(1) {
+    top: 0;
+}
 
-        .menu-icon div:nth-child(2) {
-            top: 50%;
-            transform: translateY(-50%);
-        }
+.menu-icon div:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
 
-        .menu-icon div:nth-child(3) {
-            bottom: 0;
-        }
+.menu-icon div:nth-child(3) {
+    bottom: 0;
+}
 
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: -250px;
-            width: 250px;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            transition: 0.3s;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-            z-index: 1000; /* Добавляем z-index для правильного отображения над другими элементами */
-        }
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    transition: 0.3s;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Для правильного отображения над другими элементами */
+}
 
-        .sidebar.active {
-            right: 0;
-        }
+.sidebar.active {
+    right: 0;
+}
 
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
-            transition: color 0.3s;
-        }
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+    transition: color 0.3s;
+}
 
-        .sidebar a:hover {
-            color: #ff7f00;
-        }
+.sidebar a:hover {
+    color: #ff7f00;
+}
 
-        .hero-banner {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-          
-            text-align: center;
-        }
+.hero-banner {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 60px 20px; /* Добавленный отступ для мобильных */
+    text-align: center;
+}
 
-        .about-section {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-            color: white;
-            background: black;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
-        }
+.about-section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+    color: white;
+    background: black;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
 
-     .team-section {
-    padding: 20px 20px;
+.team-section {
+    padding: 20px;
     max-width: 1200px;
     margin: auto;
-    display: flex
-;
+    display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
 
-        .team-member {
-            background: black;
-            color: white;
-            width: calc(33.33% - 20px);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s forwards;
-        }
+.team-member {
+    background: black;
+    color: white;
+    width: calc(33.33% - 20px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+}
 
-        .team-member img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 20px 0;
-        }
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px 0;
+}
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        footer {
-            background-color: black;
-            color: white;
-            padding: 60px 20px;
+footer {
+    background-color: black;
+    color: white;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.socials a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
 
-        .socials a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .socials a:hover {
-            color: #ff7f00;
-        }
-
+.socials a:hover {
+    color: #ff7f00;
+}
 
 .stats-container {
-    display: flex
-;
+    display: flex;
     gap: 90px;
-    /* align-items: center; */
     justify-content: center;
 }
 
@@ -182,6 +176,7 @@ zoom: 0.8; /* Уменьшает весь контент до 80% от ориг�
 }
 
 .stat-number {
+
     font-size: 36px; /* Размер шрифта для числа */
     font-weight: bold; /* Жирный шрифт для числа */
 }
@@ -190,13 +185,10 @@ zoom: 0.8; /* Уменьшает весь контент до 80% от ориг�
     font-size: 14px; /* Размер шрифта для текста */
 }
 
-
-
 .shape-container {
     display: flex;
     position: relative;
 }
-
 
 .left-sidebar {
     left: 0;
@@ -212,10 +204,8 @@ zoom: 0.8; /* Уменьшает весь контент до 80% от ориг�
     clip-path: polygon(100% 0, 0 50%, 100% 100%); /* Форма правой боковой панели */
 }
 
-
-  
-  /* Уведомление */
-  #notification {
+/* Уведомление */
+#notification {
     background-color: #ff7f00;
     color: white;
     padding: 15px 20px;
@@ -225,77 +215,132 @@ zoom: 0.8; /* Уменьшает весь контент до 80% от ориг�
     margin-bottom: 30px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: background 0.3s;
-  }
-  #notification:hover { background-color: #e91e63; }
+}
+#notification:hover { 
+    background-color: #e91e63; 
+}
 
-  /* Окно чата */
-  #chatContainer {
+/* Окно чата */
+#chatContainer {
     display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 300px; max-height: 400px; background-color: #fff;
-    border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    display: flex; flex-direction: column; overflow: hidden; font-family: Arial, sans-serif;
-  }
-  #chatHeader { background-color: #000000; color: white; padding: 10px; font-weight: bold; }
-  #messages { flex: 1; padding: 10px; overflow-y: auto; font-size: 14px; }
-  .message { margin-bottom: 10px; }
-  .bot { color: #333; }
-  .user { color: #0066cc; text-align: right; }
+    width: 300px; 
+    max-height: 400px; 
+    background-color: #fff;
+    border-radius: 10px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+    font-family: Arial, sans-serif;
+}
+#chatHeader { 
+    background-color: #000000; 
+    color: white; 
+    padding: 10px; 
+    font-weight: bold; 
+}
+#messages { 
+    flex: 1; 
+    padding: 10px; 
+    overflow-y: auto; 
+    font-size: 14px; 
+}
+.message { margin-bottom: 10px; }
+.bot { color: #333; }
+.user { color: #0066cc; text-align: right; }
 
-  #inputForm { display: flex; padding: 10px; border-top: 1px solid #ccc; }
-  #userInput { flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
-  #sendBtn { margin-left: 8px; padding: 8px 12px; background-color: #000000; border: none; border-radius: 4px; color: white; cursor: pointer; font-weight: bold; }
-  #sendBtn:hover { background-color: #ff7f00; }
+#inputForm { 
+    display: flex; 
+    padding: 10px; 
+    border-top: 1px solid #ccc; 
+}
+#userInput { 
+    flex: 1; 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+#sendBtn { 
+    margin-left: 8px; 
+    padding: 8px 12px; 
+    background-color: #000000; 
+    border: none; 
+    border-radius: 4px; 
+    color: white; 
+    cursor: pointer; 
+    font-weight: bold; 
+}
+#sendBtn:hover { 
+    background-color: #ff7f00; 
+}
 
-  /* Отзыв */
-  #reviewSection {
+/* Отзыв */
+#reviewSection {
     margin-top: 40px;
-  }
-  #reviewLabel {
-    font-weight: bold; display: block; margin-bottom: 8px;
-  }
-  #reviewInput {
-    width: 100%; height: 80px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;
-  }
-  #submitReview {
-    margin-top: 10px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background 0.3s;
-  }
-  #submitReview:hover { background-color: #45a049; }
+}
+#reviewLabel {
+    font-weight: bold; 
+    display: block; 
+    margin-bottom: 8px;
+}
+#reviewInput {
+    width: 100%; 
+    height: 80px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    resize: vertical;
+}
+#submitReview {
+    margin-top: 10px; 
+    padding: 10px 20px; 
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    transition: background 0.3s;
+}
+#submitReview:hover { 
+    background-color: #45a049; 
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    resize: none;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #000000;
+}
+
+.feedback-container-3sh44g4848 { /* Измененный класс */
+    max-width: 600px;
+    margin: auto;
+    background: #9e9e9e00;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
 
-
- }
-        textarea {
-            width: 100%;
-            height: 200px;
-            resize: none;
-        }
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            color: white;
-            background-color: #000000;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #000000;
-        }
-
-
-  .feedback-container-3sh44g4848 { /* Измененный класс */
-            max-width: 600px;
-            margin: auto;
-            background: #9e9e9e00;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
+/* Дополнения для чат-бота */
 .chat-bot {
     position: fixed !important; /* Фиксированное положение */
     bottom: 20px !important; /* Отступ от низа экрана */
@@ -305,10 +350,75 @@ zoom: 0.8; /* Уменьшает весь контент до 80% от ориг�
     height: auto; /* Можно установить высоту при необходимости */
 }
 
+/* Настройка текстового цвета для класса .292938 */
+.292938 {
+    color: white; /* Установить цвет текста на белый */
+}
 
-        .292938 {
-            color: white; /* Установить цвет текста на белый */
-        }
+/* Добавленные стили для мобильной версии */
+@media (max-width: 768px) {
+    body {
+        zoom: 1; /* Убираем масштабирование для мобильных устройств */
+    }
+
+    header {
+        padding: 10px 15px; /* Уменьшаем отступы в заголовке для мобильных */
+    }
+
+    .hero-banner {
+        padding: 40px 10px; /* Уменьшаем отступы в героическом баннере для мобильных */
+    }
+
+    .about-section {
+        padding: 20px; /* Уменьшаем внутренние отступы секции О нас */
+    }
+
+    .team-section {
+        padding: 10px; /* Уменьшаем отступы для секции команды */
+    }
+
+    .team-member {
+        width: 100%; /* На мобильных команда будет занимать 100% */
+        margin-bottom: 20px; /* Отступ между членами команды */
+    }
+
+    .stat-circle {
+        width: 100px; /* Уменьшаем ширину круга на мобильных */
+        height: 100px; /* Уменьшаем высоту круга на мобильных */
+    }
+
+    .stat-number {
+        font-size: 24px; /* Уменьшаем размер шрифта для числа на мобильных */
+    }
+
+    .stat-text {
+        font-size: 12px; /* Уменьшаем размер шрифта для текста на мобильных */
+    }
+
+    #chatContainer {
+        width: 100%; /* Ширина окна чата 100% на мобильных */
+        max-width: 300px; /* Ограничиваем ширину */
+    }
+
+    #inputForm {
+        flex-direction: column; /* Переключаем на колонное направление для мобильных */
+    }
+
+    #userInput {
+        width: 100%; /* Уменьшаем ширину ввода на мобильных */
+    }
+
+    .feedback-container-3sh44g4848 {
+        padding: 15px; /* Уменьшаем отступы в контейнере обратной связи для мобильных */
+    }
+
+    /* Настройка для чат-бота на мобильных */
+    .chat-bot {
+        bottom: 10px !important; /* Отступ от низа экрана */
+        right: 10px !important; /* Отступ от правого края */
+    }
+}
+
 
 
 
