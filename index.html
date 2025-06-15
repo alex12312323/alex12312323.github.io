@@ -6,7 +6,7 @@
     <title>Информационная безопасность</title>
     <style>
 
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -70,7 +70,6 @@ header {
 .sidebar.active {
     right: 0;
 }
-
 .sidebar a {
     color: white;
     text-decoration: none;
@@ -82,14 +81,12 @@ header {
 .sidebar a:hover {
     color: #ff7f00;
 }
-
 .hero-banner {
     background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 100px 20px;
     text-align: center;
 }
-
 .hero-banner button {
     background: #ff007f;
     color: white;
@@ -100,11 +97,9 @@ header {
     font-size: 16px;
     transition: background 0.3s;
 }
-
 .hero-banner button:hover {
     background: #ff7f00;
 }
-
 .content {
     max-width: 1200px;
     margin: 40px auto;
@@ -114,7 +109,6 @@ header {
     gap: 20px;
     animation: fadeIn 0.5s forwards;
 }
-
 .info-block {
     background: black;
     color: white;
@@ -142,7 +136,6 @@ header {
         transform: translateY(0);
     }
 }
-
 footer {
     background-color: black;
     color: white;
@@ -184,118 +177,18 @@ footer {
 .что328498392 {
     display: flex; /* Горизонтальное расположение окон */
     gap: 20px; /* Отступы между окнами */
+
     justify-content: center; /* Выравнивание содержимого по центру */
 }
 
-.modal {
-    border-radius: 10px; /* Скругление углов */
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень */
-    max-width: 300px; /* Максимальная ширина окна */
-    transition: all 0.5s ease; /* Плавная анимация */
-}
-
-.44383283 {
-    display: flex; /* Флекс-контейнер для картинки и текста */
-}
-
-.image {
-    margin-right: 20px; /* Отступ справа для картинки */
-    max-width: 100%; /* Ограничиваем максимальную ширину картинки */
-    height: auto; /* Поддерживаем пропорции изображения */
-}
-
-.text {
-    max-width: 200px; /* Максимальная ширина текста */
-}
-
-.short-text {
-    display: block; /* Отображаем короткий текст */
-}
-
-.long-text {
-    display: none; /* Скрываем длинный текст изначально */
-    opacity: 0; /* Начальная прозрачность для анимации */
-    transition: opacity 0.5s ease; /* Плавный переход прозрачности */
-}
-
-/* Стили для кнопки */
-.toggle-button {
-    background: none; /* Без фона */
-    border: none; /* Без границы */
-    color: rgba(0, 0, 0, 0.5); /* Цвет текста кнопки */
-    font-size: 16px; /* Размер шрифта */
-    cursor: pointer; /* Указатель при наведении */
-    text-decoration: underline; /* Подчёркнутый текст */
-    transition: color 0.3s ease; /* Плавный переход цвета */
-}
-
-.toggle-button:hover {
-    color: #ccc; /* Цвет при наведении */
-}
-
-.chart-container {
-    background-color: rgb(0 0 0); /* Темный фон контейнера */
-    padding: 40px; /* Внутренние отступы */
-    border-radius: 10px; /* Скругление углов контейнера */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень для контейнера */
-}
-
-.chart {
-    display: flex; /* Горизонтальное расположение столбцов */
-    align-items: flex-end; /* Выравнивание столбцов по нижнему краю */
-    gap: 20px; /* Отступ между столбцами */
-    width: 80%; /* Ширина контейнера с графиком */
-    margin: 0 auto; /* Центрируем график внутри контейнера */
-}
-
-.bar {
-    width: 20%; /* Ширина каждого столбца */
-    background-color: rgba(75, 192, 192, 0.7); /* Цвет столбца */
-    position: relative; /* Для позиционирования текста внутри столбца */
-}
-
-.bar span {
-    position: absolute; /* Абсолютное позиционирование текста */
-    bottom: 100%; /* Позиция текста над столбцом */
-    left: 50%; /* Центрируем текст */
-    transform: translateX(-50%); /* Сдвигаем текст до центрирования */
-    color: white; /* Цвет текста */
-    font-weight: bold; /* Жирный текст */
-}
-
-.shape-container {
-    display: flex;
-    position: relative;
-}
-
-.left-sidebar {
-    left: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    clip-path: polygon(0 0, 100% 50%, 0 100%); /* Форма левой боковой панели */
-}
-
-.right-sidebar {
-    right: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    clip-path: polygon(100% 0, 0 50%, 100% 100%); /* Форма правой боковой панели */
-}
-
-a {
-    color: #594f4f; /* Устанавливаем цвет текста на белый */
-    text-decoration: none; /* Убираем подчеркивание */
-}
-
-/* Исправленные стили для мобильных устройств */
+/* Медиазапросы для мобильных устройств */
 @media (max-width: 768px) {
     body {
         zoom: 1; /* Убираем уменьшение для мобильных */
     }
 
     header {
-        padding: 10px 15px; /* Уменьшаем отступы в заголовке */
+        padding: 10px 10px; /* Уменьшаем отступы в заголовке для мобильных */
     }
 
     .hero-banner {
@@ -306,7 +199,6 @@ a {
         padding: 8px 16px; /* Уменьшаем отступы в кнопке */
         font-size: 14px; /* Уменьшаем размер шрифта в кнопке */
     }
-
 
     .content {
         margin: 20px; /* Уменьшаем отступы для контента */
@@ -337,30 +229,8 @@ a {
     .rainbow-text {
         font-size: 3em; /* Уменьшаем размер шрифта для мобильных */
     }
-
-    .modal {
-        max-width: 90%; /* Максимальная ширина модального окна для мобильных */
-        padding: 15px; /* Уменьшаем отступы в модальном окне */
-    }
-
-    .chart {
-        flex-direction: column; /* Изменение направления столбцов на вертикальное */
-        gap: 10px; /* Уменьшаем отступы между столбцами на мобильных */
-    }
-
-    .bar {
-        width: 100%; /* Ширина столбцов 100% на мобильных */
-    }
-
-    .text {
-        max-width: 100%; /* Максимальная ширина текста для мобильных */
-    }
-
-    .short-text,
-    .long-text {
-        font-size: 14px; /* Уменьшаем размер шрифта для текста на мобильных */
-    }
 }
+
 
 
 
