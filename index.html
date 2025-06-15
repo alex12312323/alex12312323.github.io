@@ -374,6 +374,54 @@ a {
         font-size: 14px; /* Уменьшаем размер шрифта для текста на мобильных */
     }
 }
+        body {
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+}
+img {
+    max-width: 100%;  /* Ограничьте максимальную ширину изображений */
+    height: auto;     /* Поддерживайте пропорции изображений */
+}
+.content {
+    max-width: 1200px; /* Хорошая практика, но также можно использовать 100% ширины */
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.info-block {
+    background: black;
+    color: white;
+    width: calc(50% - 20px); /* Это будет работать на больших экранах, но может вызвать проблемы на маленьких */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+}
+
+@media (max-width: 768px) { /* Добавьте медиазапросы для мобильных */
+    .info-block {
+        width: calc(100% - 20px); /* Задайте ширину в 100% для мобильных устройств */
+    }
+
+    .content {
+        padding: 10px; /* Уменьшите отступы на мобильных */
+    }
+
+    .hero-banner {
+        padding: 50px 10px; /* Уменьшите поля на мобильных */
+    }
+
+    footer {
+        padding: 20px 10px; /* Уменьшите поля в подвале на мобильных */
+    }
+}
+
 
 
 
