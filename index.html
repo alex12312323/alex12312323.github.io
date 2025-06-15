@@ -14,10 +14,11 @@
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
-    zoom: 0.8; /* Уменьшает весь контент до 80% от оригинального размера */
+    zoom: 1; /* Убираем уменьшение для мобильных */
 }
 
 header {
+    display: flex; /* Используем flex для более удобного размещения элементов */
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
@@ -85,7 +86,7 @@ header {
 .hero-banner {
     background: rgba(0, 0, 0, 0.7);
     color: white;
-    padding: 100px 20px;
+    padding: 50px 20px; /* Уменьшаем отступы для нормального отображения */
     text-align: center;
 }
 
@@ -106,8 +107,8 @@ header {
 
 .content {
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
+    margin: 20px auto; /* Уменьшаем отступ сверху и снизу */
+    padding: 10px; /* Убираем лишние внутренние отступы */
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -129,9 +130,9 @@ header {
 }
 
 .info-block img {
-    width: 100px;
-    height: 100px;
-    margin: 0 20px;
+    width: 80px; /* Уменьшаем размер изображений */
+    height: 80px; /* Обеспечиваем правильные пропорции */
+    margin: 0 10px; /* Убираем лишние шляпы */
     border-radius: 10px;
 }
 
@@ -145,16 +146,17 @@ header {
 footer {
     background-color: black;
     color: white;
-    padding: 40px 20px;
+    padding: 20px; /* Уменьшаем отступы футера */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: center; /* Центрируем элементы футера */
 }
 
 .socials a {
     color: white;
     margin: 0 10px;
     text-decoration: none;
+
     transition: color 0.3s;
 }
 
@@ -189,7 +191,6 @@ footer {
 .modal {
     border-radius: 10px; /* Скругление углов */
     padding: 20px;
-
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень */
     max-width: 300px; /* Максимальная ширина окна */
     transition: all 0.5s ease; /* Плавная анимация */
@@ -200,8 +201,8 @@ footer {
 }
 
 .image {
-    margin-right: 20px; /* Отступ справа для картинки */
-    max-width: 100%; /* Ограничиваем максимальную ширину картинки */
+    margin-right: 10px; /* Уменьшаем отступ справа для изображения */
+    max-width: 80%; /* Смотрим, чтобы изображение не выходило за пределы */
     height: auto; /* Поддерживаем пропорции изображения */
 }
 
@@ -236,7 +237,7 @@ footer {
 
 .chart-container {
     background-color: rgb(0 0 0); /* Темный фон контейнера */
-    padding: 40px; /* Внутренние отступы */
+    padding: 20px; /* Уменьшаем внутренние отступы */
     border-radius: 10px; /* Скругление углов контейнера */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень для контейнера */
 }
@@ -244,7 +245,7 @@ footer {
 .chart {
     display: flex; /* Горизонтальное расположение столбцов */
     align-items: flex-end; /* Выравнивание столбцов по нижнему краю */
-    gap: 20px; /* Отступ между столбцами */
+    gap: 10px; /* Уменьшаем отступы между столбцами */
     width: 80%; /* Ширина контейнера с графиком */
     margin: 0 auto; /* Центрируем график внутри контейнера */
 }
@@ -285,6 +286,7 @@ footer {
 
 a {
     color: #594f4f; /* Устанавливаем цвет текста на белый */
+
     text-decoration: none; /* Убираем подчеркивание */
 }
 
@@ -299,7 +301,7 @@ a {
     }
 
     .hero-banner {
-        padding: 60px 10px; /* Уменьшаем отступы в героическом баннере */
+        padding: 40px 10px; /* Уменьшаем отступы в героическом баннере */
     }
 
     .hero-banner button {
@@ -319,7 +321,7 @@ a {
     }
 
     .info-block img {
-        width: 80px; /* Уменьшаем размер изображений для мобильных */
+        width: 60px; /* Уменьшаем размер изображений для мобильных */
         height: auto; /* Поддерживаем пропорции изображения для мобильных */
     }
 
@@ -360,6 +362,7 @@ a {
         font-size: 14px; /* Уменьшаем размер шрифта для текста на мобильных */
     }
 }
+
 
 
 
