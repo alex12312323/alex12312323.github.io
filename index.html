@@ -89,13 +89,9 @@ header {
     padding: 100px 20px;
     text-align: center;
     width: 100%; /* Убедитесь, что занимает всю ширину */
-    display: flex; /* Используем flex для центрирования содержимого */
-    flex-direction: column; /* Устанавливаем направление на колонку */
-    justify-content: center; /* Центрируем по вертикали */
-    align-items: center; /* Центрируем по горизонтали */
 }
 
-/* Кнопка в hero-banner */
+/* Стиль для кнопки в hero-banner */
 .hero-banner button {
     background: #ff007f;
     color: white;
@@ -107,17 +103,34 @@ header {
     transition: background 0.3s;
 }
 
-/* Медиазапросы для мобильной версии */
+/* Стили для мобильного устройства */
 @media (max-width: 768px) {
     .hero-banner {
         padding: 60px 10px; /* Уменьшаем отступы в героическом баннере */
-        width: 100%; /* Убедитесь, что занимает всю ширину на мобильных */
+        display: flex; /* Используем flex для центрирования содержимого */
+        flex-direction: column; /* Располагаем элементы по вертикали */
+        justify-content: center; /* Центрируем контент по вертикали */
+        align-items: center; /* Центрируем контент по горизонтали */
     }
 
     .hero-banner button {
         padding: 8px 16px; /* Уменьшаем отступы в кнопке */
         font-size: 14px; /* Уменьшаем размер шрифта в кнопке */
     }
+}
+
+/* Стили для десктопной версии */
+@media (min-width: 769px) {
+    .hero-banner {
+        display: block; /* Убираем flex для десктопной версии */
+        text-align: center; /* Центрируем текст */
+    }
+
+    .hero-banner button {
+        padding: 10px 20px; /* Оставляем стандартные отступы */
+        font-size: 16px; /* Стандартный размер шрифта */
+    }
+}
 
 .content {
     max-width: 1200px;
