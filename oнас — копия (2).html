@@ -163,6 +163,13 @@ footer {
     justify-content: center;
 }
 
+.stats-container {
+    display: flex;
+    gap: 30px; /* Уменьшаем промежутки между кругами */
+    justify-content: center; /* Центрируем контейнер */
+    flex-wrap: wrap; /* Делаем обёртку для адаптивной верстки */
+}
+
 .stat-circle {
     background-color: rgba(75, 192, 192, 0.7); /* Цвет кругов */
     border-radius: 50%; /* Скругление для получения круга */
@@ -173,6 +180,7 @@ footer {
     align-items: center; /* Центрируем по горизонтали */
     justify-content: center; /* Центрируем по вертикали */
     text-align: center; /* Центрируем текст */
+    margin: 10px 0; /* Отступы для круга */
 }
 
 .stat-number {
@@ -181,9 +189,10 @@ footer {
 }
 
 .stat-text {
-
     font-size: 14px; /* Размер шрифта для текста */
+    padding: 0 10px; /* Добавляем небольшой внутренний отступ, чтобы текст не упирался в края */
 }
+
 
 /* Уведомление */
 #notification {
