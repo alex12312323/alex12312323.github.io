@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О нас</title>
     <style>
-    * {
+* {
     padding: 0;
     box-sizing: border-box;
 }
@@ -13,7 +13,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
-    zoom: 1; /* Изменяем масштаб на 100% для адекватного отображения */
+    zoom: 1; /* Убираем масштабирование для адекватного отображения */
 }
 
 header {
@@ -176,32 +176,13 @@ footer {
 }
 
 .stat-number {
-
     font-size: 36px; /* Размер шрифта для числа */
     font-weight: bold; /* Жирный шрифт для числа */
 }
 
 .stat-text {
+
     font-size: 14px; /* Размер шрифта для текста */
-}
-
-.shape-container {
-    display: flex;
-    position: relative;
-}
-
-.left-sidebar {
-    left: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    clip-path: polygon(0 0, 100% 50%, 0 100%); /* Форма левой боковой панели */
-}
-
-.right-sidebar {
-    right: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    clip-path: polygon(100% 0, 0 50%, 100% 100%); /* Форма правой боковой панели */
 }
 
 /* Уведомление */
@@ -339,7 +320,6 @@ button:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
 /* Дополнения для чат-бота */
 .chat-bot {
     position: fixed !important; /* Фиксированное положение */
@@ -374,6 +354,7 @@ button:hover {
     }
 
     .team-section {
+
         padding: 10px; /* Уменьшаем отступы для секции команды */
     }
 
