@@ -5,7 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Информационная безопасность</title>
     <style>
+.content-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам перенаправляться при недостатке пространства */
+    justify-content: space-between; /* Размещает элементы равномерно */
+}
 
+.info-block {
+    flex: 1 1 calc(50% - 20px); /* Позволяет элементам занимать 50% ширины с учетом отступа */
+}
+
+
+
+
+        
  * {
     margin: 0;
     padding: 0;
