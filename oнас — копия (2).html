@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас</title>
+    <style>
+        * {
+          
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
+zoom: 0.8; /* Уменьшает весь контент до 80% от оригинального размера */
+        }
+
+        header {
+          
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+
+        .menu-icon div {
+            background: white;
+            height: 4px;
+            width: 100%;
+            position: absolute;
+            transition: 0.3s;
+        }
+
+        .menu-icon div:nth-child(1) {
+            top: 0;
+        }
+
+        .menu-icon div:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .menu-icon div:nth-child(3) {
+            bottom: 0;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            transition: 0.3s;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1000; /* Добавляем z-index для правильного отображения над другими элементами */
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            transition: color 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #ff7f00;
+        }
+
+        .hero-banner {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+          
+            text-align: center;
+        }
+
+        .about-section {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: auto;
+            color: white;
+            background: black;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+     .team-section {
+    padding: 20px 20px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex
+;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+        .team-member {
+            background: black;
+            color: white;
+            width: calc(33.33% - 20px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 20px 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 60px 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .socials a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .socials a:hover {
+            color: #ff7f00;
+        }
+
+
+.stats-container {
+    display: flex
+;
+    gap: 90px;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.stat-circle {
+    background-color: rgba(75, 192, 192, 0.7); /* Цвет кругов */
+    border-radius: 50%; /* Скругление для получения круга */
+    width: 150px; /* Ширина круга */
+    height: 150px; /* Высота круга */
+    display: flex; /* Включаем флекс-рамку для центрирования текста */
+    flex-direction: column; /* Вертикальное расположение текста внутри круга */
+    align-items: center; /* Центрируем по горизонтали */
+    justify-content: center; /* Центрируем по вертикали */
+    text-align: center; /* Центрируем текст */
+}
+
+.stat-number {
+    font-size: 36px; /* Размер шрифта для числа */
+    font-weight: bold; /* Жирный шрифт для числа */
+}
+
+.stat-text {
+    font-size: 14px; /* Размер шрифта для текста */
+}
+
+
+
+.shape-container {
+    display: flex;
+    position: relative;
+}
+
+
+.left-sidebar {
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0 0, 100% 50%, 0 100%); /* Форма левой боковой панели */
+}
+
+.right-sidebar {
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(100% 0, 0 50%, 100% 100%); /* Форма правой боковой панели */
+}
+
+
+  
+  /* Уведомление */
+  #notification {
+    background-color: #ff7f00;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    width: fit-content;
+    cursor: pointer;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+  }
+  #notification:hover { background-color: #e91e63; }
+
+  /* Окно чата */
+  #chatContainer {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px; max-height: 400px; background-color: #fff;
+    border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex; flex-direction: column; overflow: hidden; font-family: Arial, sans-serif;
+  }
+  #chatHeader { background-color: #000000; color: white; padding: 10px; font-weight: bold; }
+  #messages { flex: 1; padding: 10px; overflow-y: auto; font-size: 14px; }
+  .message { margin-bottom: 10px; }
+  .bot { color: #333; }
+  .user { color: #0066cc; text-align: right; }
+
+  #inputForm { display: flex; padding: 10px; border-top: 1px solid #ccc; }
+  #userInput { flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+  #sendBtn { margin-left: 8px; padding: 8px 12px; background-color: #000000; border: none; border-radius: 4px; color: white; cursor: pointer; font-weight: bold; }
+  #sendBtn:hover { background-color: #ff7f00; }
+
+  /* Отзыв */
+  #reviewSection {
+    margin-top: 40px;
+  }
+  #reviewLabel {
+    font-weight: bold; display: block; margin-bottom: 8px;
+  }
+  #reviewInput {
+    width: 100%; height: 80px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;
+  }
+  #submitReview {
+    margin-top: 10px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background 0.3s;
+  }
+  #submitReview:hover { background-color: #45a049; }
+
+
+
+ }
+        textarea {
+            width: 100%;
+            height: 200px;
+            resize: none;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            color: white;
+            background-color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #000000;
+        }
+
+
+  .feedback-container-3sh44g4848 { /* Измененный класс */
+            max-width: 600px;
+            margin: auto;
+            background: #9e9e9e00;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+.chat-bot {
+    position: fixed !important; /* Фиксированное положение */
+    bottom: 20px !important; /* Отступ от низа экрана */
+    right: 20px !important; /* Отступ от правого края */
+    z-index: 1000 !important; /* Убедитесь, что чат-бот на переднем плане */
+    width: auto; /* Можно установить ширину при необходимости */
+    height: auto; /* Можно установить высоту при необходимости */
+}
+
+
+        .292938 {
+            color: white; /* Установить цвет текста на белый */
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+<!-- чат -->
+<div id="chatContainer">
+  <div id="chatHeader">Чат бот</div>
+  <div id="messages"></div>
+  <form id="inputForm">
+    <input type="text" id="userInput" placeholder="Ваш вопрос..." autocomplete="off" />
+    <button type="submit" id="sendBtn">Отправить</button>
+  </form>
+</div>
+
+
+
+
+
+<header>
+    <div></div>
+    <div class="menu-icon" onclick="toggleSidebar(event)">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<div class="sidebar" id="sidebar">
+   <a href="glavnua.html">Главная </a>
+     <a href="glavnua — копия.html">Как обезопасить себя</a>
+<a href="ААААА.html">Вебинары</a>
+  <a href="удмур.html">Методы обеспечения </a>
+   
+</div>
+
+<center>
+  <h1 class="292938">О нас</h1>
+</center>
+</div>
+<p>
+<p>
+
+
+
+
+
+<div class="shape-container">
+    <div class="sidebar left-sidebar"></div>
+    <main class="content"></main>
+    <div class="sidebar right-sidebar"></div>
+</div>
+
+
+
+
+
+
+<div class="about-section">
+    <h2>Информация о нашей компании</h2>
+  
+
+  <p> Наша команда состоит из экспертов в различных областях информационной безопасности, включая кибернетику, защиту данных и консалтинг. Мы используем свой обширный опыт, чтобы предлагать нашим клиентам качественные и надежные решения.</p>
+
+<!-- уведомление -->
+<div id="notification">Нажмите, чтобы открыть чат с ботом</div>
+
+</div>
+
+
+
+
+</div>
+
+
+<center>
+<div class="stats-container">
+    <div class="stat-circle">
+        <div class="stat-number">1000</div>
+        <div class="stat-text">людей выбрали прочитать наш сайт</div>
+    </div>
+    
+    <div class="stat-circle">
+        <div class="stat-number">200</div>
+        <div class="stat-text">остались довольны</div>
+    </div>
+    
+    <div class="stat-circle">
+        <div class="stat-number">50</div>
+        <div class="stat-text">рекомендовали нас друзьям</div>
+</center>
+    </div>
+
+
+<p>
+<p>
+<div class="team-section">
+
+    <div class="team-member">
+<center>  <h3>Почему мы?</h3></center>
+  </div>
+ 
+</div>
+
+<div class="team-section">
+
+    <div class="team-member">
+       
+        <h3>Образование</h3>
+        <p> Мы считаем, что просвещение является ключом к предотвращению киберугроз. Наша цель — обучать пользователей и компании основам информационной безопасности и развивать культуру безопасности в обществе.</p>
+   
+
+
+
+ </div>
+    <div class="team-member">
+      
+        <h3>Надежность</h3>
+        <p>Мы стремимся обеспечить высокое качество обслуживания и поддерживать долгосрочные отношения с клиентами. Доверие — это основа нашего бизнеса, и мы работаем на то, чтобы его сохранить.
+</p>
+
+    </div>
+ 
+</div>
+
+
+
+<div class="feedback-container-3sh44g4848">
+    <h2>Оставьте ваш отзыв</h2>
+    <textarea id="feedbackInput" placeholder="Ваш отзыв..."></textarea>
+    <button id="submitButton">Отправить</button>
+    <div id="responseMessage" style="margin-top: 40px;"></div>
+</div>
+
+<script>
+    document.getElementById('submitButton').onclick = function() {
+        const feedback = document.getElementById('feedbackInput').value;
+
+        fetch('https://script.google.com/macros/s/AKfycbxU4DW-dSBysK7FzdNfdNM2UR_xd665JgvQz3Gd7khUKD2Efx2m15d2Mzkunz0avHKd/exec', { // Ваш URL
+            method: 'POST',
+            body: new URLSearchParams({ feedback: feedback })
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('responseMessage').innerText = data;
+            document.getElementById('feedbackInput').value = ''; // Очистим поле ввода
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+            document.getElementById('responseMessage').innerText = 'Произошла ошибка при отправке отзыва.';
+        });
+    };
+</script>
+
+
+
+<footer>
+    <div class="about">
+      
+<h2>Контактная информация</h2>
+Вы можете связаться с нами по телефону:  + 7 (900) 876 - 92 - 94
+    </div>
+    <div class="socials">
+         <a href="https://telegram.org">Telegram</a>
+        <a href="https://vk.com">Вконтакте</a>
+    </div>
+</footer>
+
+<script>
+    function toggleSidebar(event) {
+        // предотвращаем ошибку, если клик по боковому меню
+        event.stopPropagation();
+        document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    // Закрыть меню, если кликнули вне него
+    document.addEventListener('click', function(event) {
+        const sidebar = document.getElementById('sidebar');
+        const menuIcon = document.querySelector('.menu-icon');
+
+        // Проверка: клик по боковому меню или иконке
+        if (!sidebar.contains(event.target) && !menuIcon.contains(event.target)) {
+            sidebar.classList.remove('active');
+        }
+    });
+
+
+
+
+
+
+
+
+
+const notification = document.getElementById('notification');
+const chatContainer = document.getElementById('chatContainer');
+const messages = document.getElementById('messages');
+
+notification.onclick = () => {
+  chatContainer.style.display = 'flex';
+  notification.style.display = 'none';
+
+  addMessage('bot', 'Здравствуйте! Я могу помочь вам с вопросами или вы можете оставить отзыв. Вот некоторые вопросы:\n1. Какие услуги вы предоставляете?\n2. Где находится ваш офис?\n3. Как связаться с вами?');
+};
+
+function addMessage(sender, text) {
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'message ' + sender;
+  msgDiv.innerText = text;
+  messages.appendChild(msgDiv);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+const faq = {
+  "какие услуги вы предоставляете": "Мы предоставляем комплексные IT-услуги, включая разработку, поддержку и консультации.",
+  "где находится ваш офис": "Наш офис расположен в центре города, по адресу ул. Примерная, д. 123.",
+  "как связаться с вами": "Вы можете связаться с нами по телефону +7 (123) 456-78-90 или по email: info@mysite.com."
+};
+
+document.getElementById('inputForm').onsubmit = function(e) {
+  e.preventDefault();
+  const input = document.getElementById('userInput');
+  const question = input.value.trim().toLowerCase();
+  if(question === "") return;
+  addMessage('user', input.value);
+  let answer = 'Извините, я не понимаю вопроса.';
+  for (let key in faq) {
+    if (question.includes(key)) {
+      answer = faq[key];
+      break;
+    }
+  }
+  setTimeout(() => { addMessage('bot', answer); }, 500);
+  input.value = "";
+};
+
+// Обработка отправки отзыва
+document.getElementById('submitReview').onclick = () => {
+  const reviewText = document.getElementById('reviewInput').value.trim();
+  if(!reviewText) {
+    alert("Пожалуйста, напишите отзыв перед отправкой.");
+    return;
+  }
+  
+  const url = 'https://script.google.com/macros/s/AKfycbxU4DW-dSBysK7FzdNfdNM2UR_xd665JgvQz3Gd7khUKD2Efx2m15d2Mzkunz0avHKd/exec';
+  
+  fetch(url, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `review=${encodeURIComponent(reviewText)}`
+  }).then(() => {
+    alert('Спасибо за ваш отзыв!');
+    document.getElementById('reviewInput').value = "";
+  }).catch(() => {
+    alert('Не удалось отправить отзыв. Попробуйте еще раз.');
+  });
+};
+
+
+document.getElementById('submitReview').onclick = () => {
+  const reviewText = document.getElementById('reviewInput').value.trim();
+  if (!reviewText) {
+    alert("Пожалуйста, напишите отзыв перед отправкой.");
+    return;
+  }
+
+  const url = 'https://script.google.com/macros/s/AKfycbxU4DW-dSBysK7FzdNfdNM2UR_xd665JgvQz3Gd7khUKD2Efx2m15d2Mzkunz0avHKd/exec';
+
+  fetch(url, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `review=${encodeURIComponent(reviewText)}`
+  }).then(() => {
+    alert('Спасибо за ваш отзыв!');
+    document.getElementById('reviewInput').value = "";
+  }).catch(() => {
+    alert('Не удалось отправить отзыв. Попробуйте еще раз.');
+  });
+};
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

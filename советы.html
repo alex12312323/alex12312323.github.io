@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методы обеспечения информационной безопасности</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            animation: background-animation 10s ease-in-out infinite; /* Добавлена анимация фона */
+            overflow-x: hidden; /* Скрытие горизонтальной прокрутки */
+zoom: 0.8; /* Уменьшает весь контент до 80% от оригинального размера */
+        }
+
+        @keyframes background-animation {
+            0% { background-color: #ff007f; } /* Начальный цвет */
+            50% { background-color: #ff7f00; } /* Посредний цвет */
+            100% { background-color: #ff007f; } /* Конечный цвет */
+        }
+
+        header {
+           
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            z-index: 2; /* Установлен z-index выше для меню */
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+
+        .menu-icon div {
+            background: white;
+            height: 4px;
+            width: 100%;
+            position: absolute;
+            transition: 0.3s;
+        }
+
+        .menu-icon div:nth-child(1) {
+            top: 0;
+        }
+
+        .menu-icon div:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .menu-icon div:nth-child(3) {
+            bottom: 0;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            transition: 0.3s;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            color: white;
+            z-index: 10; /* Установлен z-index выше для бокового меню */
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            transition: color 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #ff7f00;
+        }
+
+    
+
+        .content-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: black;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            text-align: left; /* Установить выравнивание текста по левому краю */
+            position: relative; /* Position relative для контента */
+            z-index: 5; /* Установлен z-index для контента */
+        }
+
+        h1, h2, h3 {
+            margin: 20px 0;
+            color: #ff7f00; /* Оранжевый цвет для заголовков */
+        }
+
+        p {
+            line-height: 1.6; /* Увеличенный межстрочный интервал для удобочитаемости */
+            margin-bottom: 15px;
+        }
+
+        .info-banner {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 50px auto;
+            max-width: 800px;
+        }
+
+        .info-card {
+            background: #444; /* Темный фон карточек */
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            width: 30%; /* Ширина каждой карточки инвайта */
+            transition: transform 0.3s;
+        }
+
+        .info-card:hover {
+            transform: scale(1.05); /* Увеличение при наведении */
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .socials a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .socials a:hover {
+            color: #ff7f00;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        .content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .info-block {
+            background: black;
+            color: white;
+            width: calc(50% - 20px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .info-block img {
+            width: 100px;
+            height: 100px;
+            margin: 0 20px;
+            border-radius: 10px;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+   /* Стили для секций с примерами атак */
+        .content-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: black;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .content-section {
+            margin-bottom: 20px;
+        }
+
+        .content-section img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        /* Стили для шахматной сетки */
+        .chess-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 50px 0;
+        }
+
+
+.split-banner {
+    display: flex;
+}
+.left-section {
+    background-color: #00000066;
+    color: white;
+    flex: 1;
+    padding: 20px;
+}
+
+.right-section {
+    background-color: #0c030382;
+    color: white;
+    flex: 1;
+    padding: 20px;
+}
+
+
+.shape-container {
+    display: flex;
+    position: relative;
+}
+
+
+.left-sidebar {
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0 0, 100% 50%, 0 100%); /* Форма левой боковой панели */
+}
+
+.right-sidebar {
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(100% 0, 0 50%, 100% 100%); /* Форма правой боковой панели */
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div></div>
+    <div class="menu-icon" onclick="toggleSidebar(event)">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<div class="sidebar" id="sidebar">
+   <a href="glavnua.html">Главная </a>
+     <a href="glavnua — копия.html">Как обезопасить себя</a>
+
+  <a href="удмур.html">Методы обеспечения </a>
+    <a href="oнас.html">О нас</a>
+</div>
+
+
+
+<!-- Анимированный баннер -->
+
+<div class="split-banner">
+    <div class="left-section">
+        <h1>Методы обеспечения безопасности</h1>
+        <p>Узнайте для чего цифровая безопасность.</p>
+    </div>
+    <div class="right-section">
+        <h1>Самые распространенные атаки в Интернете</h1>
+        <p>Все способы мошенников.</p>
+    </div>
+</div>
+
+
+<!-- Контент -->
+
+
+<div class="shape-container">
+    <div class="sidebar left-sidebar"></div>
+    <main class="content"></main>
+    <div class="sidebar right-sidebar"></div>
+</div>
+
+
+
+
+<!-- Контент -->
+<div class="content-container">
+    <h1>Методы обеспечения информационной безопасности</h1>
+<p> В современном мире, где цифровая информация играет важнейшую роль, обеспечение безопасности информационных систем становится неотъемлемым этапом ведения бизнеса и управления данными. Методы защиты информационной безопасности включают в себя комплексный подход, который охватывает технологии, процессы и людей.</p>
+</div>
+<div class="content" id="content">
+    <div class="info-block">
+
+    
+       
+    <div>Основные методы защиты данных включают криптографию, системы контроля доступа, антивирусное программное обеспечение и резервное копирование данных. Каждый из этих методов имеет свое уникальное применение и обеспечивает защиту от различных угроз.</div>
+    </div>
+    <div class="info-block">
+        
+        <div>Криптография — это основополагающий метод защиты данных, который преобразует информацию в зашифрованный формат, недоступный неавторизованным пользователям. Криптографические алгоритмы, такие как AES и RSA, используются для обеспечения конфиденциальности и целостности данных.</div>
+    </div>
+    <div class="info-block">
+        
+        <div>Аутентификация пользователей и контроль доступа к системам и данным являются критически важными аспектами безопасности. Многофакторная аутентификация, пароли и биометрические данные помогают убедиться, что доступ к системам имеют только авторизованные пользователи.</div>
+    </div>
+    <div class="info-block">
+        
+        <div>Антивирусные программы используются для защиты систем от вредоносного программного обеспечения, включая вирусы, трояны и шпионские программы. Эти решения обнаруживают и устраняют угрозы, обеспечивая безопасность данных и предотвращая утечки информации.</div>
+    </div>
+    <div class="info-block">
+       
+        <div>Важным аспектом защиты информационной безопасности является обучение сотрудников. Понимание принципов безопасной работы с данными, таких как защита паролей и распознавание фишинга, помогает предотвратить многие угрозы.</div>
+    </div>
+    <div class="info-block">
+      
+        <div>Методы защиты информационной безопасности являются критически важными для любого бизнеса. Их внедрение позволяет не только защитить данные, но и укрепить доверие клиентов и пользователей. Важно помнить, что безопасность — это предпочтение, которое требует комплексного подхода и постоянного улучшения.</div>
+    </div>
+</div>
+
+
+
+<div class="content-container">
+    <h1>Примеры атак</h1>
+<p>Cамые распространенные</p>
+</div>
+</center>
+<div class="content-container">
+    <div class="content-section" id="section1">
+        <img src="OIP (1).jpg" alt="Совет 1">
+        <p>Атака DDoS.</p>
+        <p>Перегрузка сервера запросами, приводящая к недоступности сервиса.</p>
+    </div>
+
+    <div class="content-section" id="section2">
+        <img src="OIP (2).jpg" alt="Совет 2">
+        <p>Компьютерный червь.</p>
+        <p>Самораспространяющаяся вредоносная программа, которая заражает сети.</p>
+    </div>
+
+    <div class="content-section" id="section3">
+        <img src="1230d4mm.png" alt="Совет 3">
+        <p>Атака фишинга</p>
+        <p>Мошенническая попытка получить конфиденциальные данные, маскируясь под доверенный источник.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Информационные баннеры -->
+<div class="info-banner">
+    <div class="info-card">
+        <h3>Не используйте простые пароли</h3>
+        <p>Создавайте сложные пароли, которые невозможно угадать, и регулярно их обновляйте.</p>
+    </div>
+    <div class="info-card">
+        <h3>Будьте осторожны с подозрительными ссылками</h3>
+        <p>Не переходите по ссылкам в недостоверных письмах или сообщениях, это может быть фишинг.</p>
+    </div>
+    <div class="info-card">
+        <h3>Регулярно обновляйте программное обеспечение</h3>
+        <p>Убедитесь, что ваше ПО, включая антивирус, всегда обновлено до последней версии.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div class="about">
+        <h2>Контактная информация</h2>
+        <p>Вы можете связаться с нами по электронной почте: info@company.com</p>
+    </div>
+    <div class="socials">
+        <a href="https://telegram.org">Telegram</a>
+        <a href="https://vk.com">Вконтакте</a>
+      
+
+
+ 
+       
+    </div>
+</footer>
+
+<script>
+    // Функция для переключения боковой панели
+    function toggleSidebar(event) {
+        event.stopPropagation();
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active'); // Переключаем класс для показа/скрытия
+    }
+
+    // Закрыть меню, если кликнули вне него
+    document.addEventListener('click', function(event) {
+        const sidebar = document.getElementById('sidebar');
+        const menuIcon = document.querySelector('.menu-icon');
+        if (!sidebar.contains(event.target) && !menuIcon.contains(event.target)) {
+            sidebar.classList.remove('active');
+        }
+    });
+
+
+
+</script>
+
+</body>
+</html>

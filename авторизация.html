@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Авторизация с меню справа</title>
+<style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
+    zoom: 0.8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Боковое меню справа */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 50vh;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    transition: right 0.3s;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar a {
+    color: white;
+    margin: 15px 0;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.sidebar a:hover {
+    color: #ff7f00;
+}
+
+/* Кнопка-бургер слева */
+.burger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 35px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.burger div {
+    height: 4px;
+    background-color: white;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.auth-form {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.auth-form input {
+    margin-bottom: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.auth-form button {
+    padding: 12px;
+    background-color: #ff7f00;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-form button:hover {
+    background-color: #e76f00;
+}
+
+footer {
+    background-color: #000;
+    padding: 180px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.footer-left {
+    max-width: 50%;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-width: 50%;
+}
+
+.socials {
+    margin-bottom: 8px;
+}
+
+.socials a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.socials a:hover {
+    color: #ff7f00;
+}
+
+.site-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    body {
+        zoom: 1; /* Убираем уменьшение для мобильных */
+    }
+
+    .wrapper {
+        padding: 60px 10px; /* Меньше заполнения на мобильных */
+    }
+
+    .sidebar {
+        width: 200px; /* Уменьшаем ширину бокового меню */
+    }
+
+    .sidebar a {
+        font-size: 16px; /* Уменьшаем размер шрифта */
+    }
+
+    .burger {
+        top: 15px; /* Увеличиваем отступ для кнопки-бургера */
+        left: 15px;
+    }
+
+    .auth-form {
+        padding: 30px; /* Уменьшаем отступ внутри формы */
+    }
+
+    footer {
+        padding: 100px 20px; /* Уменьшаем отступы вокруг подвала */
+
+        flex-direction: column; /* Упрощаем компоновку для мобильных */
+        align-items: center; /* Центрируем контент */
+        text-align: center; /* Центрируем текст */
+    }
+
+    .footer-left, .footer-right {
+        max-width: 100%; /* Убираем ограничение по ширине для мобильных */
+    }
+
+    .socials {
+        margin-bottom: 15px; /* Увеличиваем отступ между соц. ссылками */
+    }
+}
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Бургер слева -->
+<div class="burger" id="burger" title="Меню">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<!-- Меню справа -->
+<div class="sidebar" id="sidebar">
+ <a href="index.html">Главная</a>
+ <a href="тест.html">Как обезопасить себя</a>
+<a href="вебинары.html">Вебинары</a>
+  <a href="советы.html">Методы обеспечения </a>
+    <a href="oнас — копия (2) — копия.html">О нас</a>
+   <a href="регистрация.html">Регистрация</a>
+</div>
+
+<div class="wrapper">
+  <form class="auth-form" id="authForm">
+    <h2>Авторизация</h2>
+    <input type="email" placeholder="Email" required />
+    <input type="password" placeholder="Пароль" required />
+    <button type="submit">Войти</button>
+    <div id="formMessage" style="margin-top: 15px; color: #ffcc00; font-weight: bold;"></div>
+  </form>
+</div>
+
+<footer>
+  <div class="footer-left">
+     <p>Контактная информация</p>
+ <p>Вы можете связаться с нами по телефону: + 7 (900) 876 - 92 - 94</p>
+  </div>
+  <div class="footer-right">
+    <div class="socials">
+      <a href="https://telegram.org" aria-label="VK">Telegram</a>
+  
+      <a href="https://vk.com" aria-label="Twitter">Вконтакте</a>
+    </div>
+    
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const sidebar = document.getElementById('sidebar');
+  burger.onclick = () => {
+    sidebar.classList.toggle('active');
+  };
+
+  document.getElementById('authForm').onsubmit = function(e){
+    e.preventDefault();
+    window.location.href = 'index.html';
+  }
+</script>
+
+</body>
+</html>
