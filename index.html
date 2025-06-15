@@ -640,6 +640,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+    function adjustStyles() {
+    if (window.innerWidth < 768) {
+        // Изменить стили для мобильных устройств
+        document.body.classList.add('mobile');
+    } else {
+        // Изменить стили для ПК
+        document.body.classList.remove('mobile');
+    }
+}
+
+window.addEventListener('resize', adjustStyles);
+document.addEventListener('DOMContentLoaded', adjustStyles);
+
 </script>
 
 </body>
