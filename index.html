@@ -22,7 +22,9 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    width: 100%; /* Устанавливаем ширину заголовка */
     background: rgba(0, 0, 0, 0.7);
+    position: relative;
 }
 
 .menu-icon {
@@ -117,7 +119,9 @@ header {
 .info-block {
     background: black;
     color: white;
-    width: calc(50% - 20px); /* Ширина блоков информации */
+    flex: 1; /* Используем flex, чтобы адаптироваться к ширине */
+    min-width: calc(50% - 20px); /* Рассмотрим минимальную ширину для блоков */
+    max-width: calc(50% - 20px); /* Ограничиваем максимальную ширину блоков */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -126,12 +130,13 @@ header {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 0.5s forwards;
-    overflow-wrap: break-word; /* Помогает переносить текст, если он выходит за границы */
+    overflow-wrap: break-word; /* Помогаем переносить текст, если выходит за границы */
 }
 
 .info-block img {
     width: 100px; /* Размер изображений */
     height: 100px;
+
     margin: 0 20px;
 }
 
@@ -276,9 +281,11 @@ a {
     }
 
     header {
+
         flex-direction: column; /* Переключение на колонное размещение */
         align-items: flex-start; /* Выравнивание по левому краю */
         padding: 10px 15px; /* Уменьшаем отступы в заголовке */
+        width: 100%; /* Устанавливаем ширину заголовка */
     }
 
     .hero-banner {
@@ -290,7 +297,6 @@ a {
         font-size: 14px; /* Уменьшаем размер шрифта в кнопке */
     }
 
-
     .content {
         margin: 20px; /* Уменьшаем отступы для контента */
         padding: 10px; /* Уменьшаем внутренние отступы */
@@ -299,6 +305,7 @@ a {
 
     .info-block {
         width: 100%; /* Каждая информация занимает 100% ширины */
+        min-width: auto; /* Убираем минимальную ширину для мобильных */
         margin: 0; /* Убираем отступы между блоками информации */
     }
 
@@ -348,7 +355,6 @@ a {
         padding: 20px; /* Уменьшаем внутренние отступы */
     }
 }
-
 
 
     </style>
