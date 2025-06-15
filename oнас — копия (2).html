@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О нас</title>
     <style>
+
+.left-sidebar {
+    position: fixed; /* Зафиксированное позиционирование слева */
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0 0, 100% 50%, 0 100%); /* Форма левой боковой панели */
+    width: 200px; /* Ширина боковой панели */
+    height: 100%; /* Полная высота */
+    z-index: 1000; /* Обеспечивает, чтобы панель была над другими элементами */
+}
+
+/* Описание правой боковой панели */
+.right-sidebar {
+    position: fixed; /* Зафиксированное позиционирование справа */
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(100% 0, 0 50%, 100% 100%); /* Форма правой боковой панели */
+    width: 200px; /* Ширина боковой панели */
+    height: 100%; /* Полная высота */
+    z-index: 1000; /* Обеспечивает, чтобы панель была над другими элементами */
+}
+
+/* Скрытие боковых панелей на мобильных устройствах */
+@media (max-width: 768px) {
+    .left-sidebar,
+    .right-sidebar {
+        display: none; /* Скрываем боковые панели на мобильных */
+    }
+}
+        
+
+        
 * {
     padding: 0;
     box-sizing: border-box;
