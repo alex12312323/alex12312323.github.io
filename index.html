@@ -14,12 +14,11 @@
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
-    zoom: 0.8; /* Уменьшает весь контент до 80% от оригинального размера */
     overflow-x: hidden; /* Запрет на горизонтальную прокрутку */
 }
 
 header {
-    display: flex; /* Добавлено для лучшего выравнивания элементов */
+    display: flex; 
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
@@ -28,65 +27,29 @@ header {
 
 .menu-icon {
     cursor: pointer;
-    display: inline-block;
     width: 30px;
     height: 30px;
-    position: relative;
-}
-
-.menu-icon div {
-    background: white;
-    height: 4px;
-    width: 100%;
-    position: absolute;
-    transition: 0.3s;
-}
-
-.menu-icon div:nth-child(1) {
-    top: 0;
-}
-
-.menu-icon div:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.menu-icon div:nth-child(3) {
-    bottom: 0;
 }
 
 .sidebar {
     position: fixed;
     top: 0;
-    right: -250px;
+    right: -250px; /* Скрываем боковое меню */
     width: 250px;
     height: 100vh;
     background: rgba(0, 0, 0, 0.9);
     padding: 20px;
     transition: 0.3s;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar.active {
-    right: 0;
-}
-
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    margin: 10px 0;
-    transition: color 0.3s;
-}
-
-.sidebar a:hover {
-    color: #ff7f00;
+    right: 0; /* Показываем боковое меню */
 }
 
 .hero-banner {
     background: rgba(0, 0, 0, 0.7);
     color: white;
-    padding: 100px 20px;
+    padding: 60px 20px; /* Отступы для мобильных */
     text-align: center;
 }
 
@@ -97,43 +60,30 @@ header {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-}
-
-.hero-banner button:hover {
-    background: #ff7f00;
 }
 
 .content {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
+    max-width: 100%; /* Изменяю на 100% для мобильников */
+    padding: 10px; /* Уменьшаю внутренние отступы */
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    animation: fadeIn 0.5s forwards;
+    flex-direction: column; /* Элементы друг под другом */
+    gap: 10px; /* Отступы между элементами */
 }
 
 .info-block {
     background: black;
     color: white;
-    width: calc(50% - 20px); /* Установить ширину блоков информации */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    width: 100%; /* Каждое дело занимает 100% ширины */
+    padding: 10px; /* Уменьшил внутренние отступы */
+    border-radius: 10px; /* Скругленные углы */
     display: flex;
     align-items: center;
-    opacity: 0; /* Для анимации появления */
-    transform: translateY(20px); /* Для анимации появления */
-    animation: fadeIn 0.5s forwards; /* При добавлении класса появляется анимация */
 }
 
 .info-block img {
-    width: 100px; /* Ширина изображения */
-    height: 100px; /* Высота изображения */
-    margin: 0 20px; /* Отступы вокруг изображения */
-    border-radius: 10px; /* Скругление углов */
+    width: 60px; /* Уменьшаем изображения для мобильных */
+    height: auto; 
+    margin-right: 10px; /* Уменьшаем отступы */
 }
 
 .text {
@@ -167,24 +117,21 @@ header {
 
 .chart-container {
     background-color: rgb(0 0 0); /* Темный фон контейнера */
-
-    padding: 40px; /* Внутренние отступы */
-    border-radius: 10px; /* Скругление углов контейнера */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень для контейнера */
+    padding: 20px; /* Уменьшенные внутренние отступы */
+    border-radius: 10px; /* Скругленные углы для контейнеров */
 }
 
 .chart {
-    display: flex; /* Горизонтальное расположение столбцов */
-    align-items: flex-end; /* Выравнивание столбцов по нижнему краю */
-    gap: 20px; /* Отступ между столбцами */
-    width: 80%; /* Ширина контейнера с графиком */
-    margin: 0 auto; /* Центрируем график внутри контейнера */
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение столбцов */
+    gap: 10px; /* Уменьшаем отступы между столбцами */
+    margin: 0 auto; /* Центрируем контейнер */
 }
 
 .bar {
-    width: 20%; /* Ширина каждого столбца */
-    background-color: rgba(75, 192, 192, 0.7); /* Цвет столбца */
-    position: relative; /* Для позиционирования текста внутри столбца */
+    width: 100%; /* Ширина столбцов 100% на мобильных */
+    background-color: rgba(75, 192, 192, 0.7);
+    position: relative; /* Позиционирование для текста */
 }
 
 .bar span {
@@ -198,6 +145,7 @@ header {
 
 .shape-container {
     display: flex;
+
     position: relative;
 }
 
@@ -240,19 +188,18 @@ a {
     }
 
     .content {
-        margin: 20px; /* Уменьшаем отступы для контента */
         padding: 10px; /* Уменьшаем внутренние отступы */
-        flex-direction: column; /* Приводим элементы к колонному направлению */
+        flex-direction: column; /* Элементы друг под другом на мобильных */
     }
 
     .info-block {
-        width: 100%; /* Каждая информация занимает 100% ширины */
-        margin-bottom: 20px; /* Отступ между блоками информации */
+        width: 100%; /* Каждое дело занимает 100% ширины */
+        margin-bottom: 10px; /* Отступ между блоками информации */
     }
 
     .info-block img {
-        width: 80px; /* Уменьшаем размер изображений для мобильных */
-        height: auto; /* Поддерживаем пропорции для мобильных */
+        width: 60px; /* Уменьшение ширины изображений для мобильных */
+        height: auto; 
     }
 
     footer {
@@ -290,6 +237,35 @@ a {
     .short-text,
     .long-text {
         font-size: 14px; /* Уменьшаем размер шрифта для текста на мобильных */
+    }
+}
+
+/* Дополнительные стили для десктопной версии */
+@media (min-width: 769px) {
+    body {
+        zoom: 1; /* Полноразмерное отображение для настольных */
+    }
+
+    .content {
+        flex-direction: row; /* Если на десктопе, элементы идут в строку */
+        flex-wrap: wrap; /* Позволяет элементам брать много строк */
+    }
+
+    .info-block {
+        width: calc(50% - 20px); /* Устанавливаем ширину блоков информации на десктопе */
+    }
+
+    .hero-banner {
+        padding: 100px 20px; /* Увеличение отступов для настольной версии */
+    }
+
+    .info-block img {
+        width: 100px; /* Вернем ширину изображений на ПК */
+    }
+
+    footer {
+        flex-direction: row; /* Элементы в строку для футера на ПК */
+        justify-content: space-between; /* Распределяем пространство между элементами */
     }
 }
 
