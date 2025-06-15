@@ -87,9 +87,14 @@ header {
     color: white;
     padding: 100px 20px;
     text-align: center;
-    width: 100%; /* Убедитесь, что закладка занимает всю ширину */
+    width: 100%; /* Убедитесь, что занимает всю ширину */
+    display: flex; /* Используем flex для центрирования содержимого */
+    flex-direction: column; /* Устанавливаем направление на колонку */
+    justify-content: center; /* Центрируем по вертикали */
+    align-items: center; /* Центрируем по горизонтали */
 }
 
+/* Кнопка в hero-banner */
 .hero-banner button {
     background: #ff007f;
     color: white;
@@ -112,10 +117,12 @@ header {
         padding: 8px 16px; /* Уменьшаем отступы в кнопке */
         font-size: 14px; /* Уменьшаем размер шрифта в кнопке */
     }
-}
 
-.hero-banner button:hover {
-    background: #ff7f00;
+    /* Дополнительное центрирование для контента */
+    .что328498392 {
+        justify-content: center; /* Центрируем содержимое внутри этого контейнера */
+        text-align: center; /* Центрируем текст внутри элемента */
+    }
 }
 
 .content {
@@ -194,11 +201,7 @@ footer {
     100% { background-position: 100% 50%; }
 }
 
-.что328498392 {
-    display: flex; /* Горизонтальное расположение окон */
-    gap: 20px; /* Отступы между окнами */
-    justify-content: center; /* Выравнивание содержимого по центру */
-}
+
 
 .modal {
     border-radius: 10px; /* Скругление углов */
