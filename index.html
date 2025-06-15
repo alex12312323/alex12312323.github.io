@@ -82,12 +82,12 @@ header {
 .sidebar a:hover {
     color: #ff7f00;
 }
-
 .hero-banner {
     background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 100px 20px;
     text-align: center;
+    width: 100%; /* Убедитесь, что закладка занимает всю ширину */
 }
 
 .hero-banner button {
@@ -99,6 +99,19 @@ header {
     cursor: pointer;
     font-size: 16px;
     transition: background 0.3s;
+}
+
+/* Медиазапросы для мобильной версии */
+@media (max-width: 768px) {
+    .hero-banner {
+        padding: 60px 10px; /* Уменьшаем отступы в героическом баннере */
+        width: 100%; /* Убедитесь, что занимает всю ширину на мобильных */
+    }
+
+    .hero-banner button {
+        padding: 8px 16px; /* Уменьшаем отступы в кнопке */
+        font-size: 14px; /* Уменьшаем размер шрифта в кнопке */
+    }
 }
 
 .hero-banner button:hover {
