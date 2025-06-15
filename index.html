@@ -1,379 +1,297 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Информационная безопасность</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключите ваш CSS здесь -->
     <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
-    zoom: 0.8; /* Уменьшает весь контент до 80% от оригинального размера */
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
+            zoom: 0.8; /* Уменьшает весь контент до 80% от оригинального размера */
+        }
 
-header {
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.7);
-    position: relative;
-}
+        header {
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+            display: flex; /* Добавлено для горизонтального расположения элементов */
+        }
 
-.menu-icon {
-    cursor: pointer;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    position: relative;
-}
+        .menu-icon {
+            cursor: pointer;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
 
-.menu-icon div {
-    background: white;
-    height: 4px;
-    width: 100%;
-    position: absolute;
-    transition: 0.3s;
-}
+        .menu-icon div {
+            background: white;
+            height: 4px;
+            width: 100%;
+            position: absolute;
+            transition: 0.3s;
+        }
 
-.menu-icon div:nth-child(1) {
-    top: 0;
-}
+        .menu-icon div:nth-child(1) {
+            top: 0;
+        }
 
-.menu-icon div:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50%);
-}
+        .menu-icon div:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
 
-.menu-icon div:nth-child(3) {
-    bottom: 0;
-}
+        .menu-icon div:nth-child(3) {
+            bottom: 0;
+        }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 20px;
-    transition: 0.3s;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-}
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            transition: 0.3s;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        }
 
-.sidebar.active {
-    right: 0;
-}
+        .sidebar.active {
+            right: 0;
+        }
 
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    margin: 10px 0;
-    transition: color 0.3s;
-}
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            transition: color 0.3s;
+        }
 
-.sidebar a:hover {
-    color: #ff7f00;
-}
+        .sidebar a:hover {
+            color: #ff7f00;
+        }
 
-.hero-banner {
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 100px 20px;
-    text-align: center;
-}
+        .hero-banner {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
 
-.hero-banner button {
-    background: #ff007f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-}
+        .hero-banner button {
+            background: #ff007f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
 
-.hero-banner button:hover {
-    background: #ff7f00;
-}
+        .hero-banner button:hover {
+            background: #ff7f00;
+        }
 
-.content {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    animation: fadeIn 0.5s forwards;
-}
+        .content-container {
+            display: flex;
+            flex-direction: column; /* Меняем на колонну для мобильных устройств */
+            align-items: center; /* Центрируем содержимое */
+        }
 
-.info-block {
-    background: black;
-    color: white;
-    width: calc(50% - 20px); /* Установить ширину блоков информации */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.5s forwards;
-}
+        .rainbow-text {
+            font-size: 4em; /* Размер шрифта */
+            font-weight: bold; /* Жирный текст */
+            background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%); /* Градиент */
+            -webkit-background-clip: text; /* Обрезка фона по тексту */
+            -webkit-text-fill-color: transparent; /* Прозрачный цвет текста */
+            animation: rainbow 3s infinite linear; /* Анимация */
+        }
 
-.info-block img {
-    width: 100px;
-    height: 100px;
-    margin: 0 20px;
-    border-radius: 10px;
-}
+        @keyframes rainbow {
+            0% {
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
 
-footer {
-    background-color: black;
-    color: white;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.socials a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+        .что328498392 {
+            display: flex; /* Горизонтальное расположение окон */
+            gap: 20px; /* Отступы между окнами */
+            justify-content: center; /* Выравнивание содержимого по центру */
+            flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+        }
 
-.socials a:hover {
-    color: #ff7f00;
-}
+        .modal {
+            border-radius: 10px; /* Скругление углов */
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень */
+            max-width: 300px; /* Максимальная ширина окна */
+            transition: all 0.5s ease; /* Плавная анимация */
+            background: #fff; /* Фон для модальных окон */
+            margin: 10px; /* Отступ между модальными окнами */
+        }
 
-.about {
-    max-width: 400px;
-}
+        .44383283 {
+            display: flex; /* Флекс-контейнер для картинки и текста */
+            align-items: center; /* Центрируем содержимое */
+        }
 
-.rainbow-text {
-    font-size: 4em; /* Размер шрифта */
-    font-weight: bold; /* Жирный текст */
-    background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%); /* Градиент */
-    -webkit-background-clip: text; /* Обрезка фона по тексту */
-    -webkit-text-fill-color: transparent; /* Прозрачный цвет текста */
-    animation: rainbow 3s infinite linear; /* Анимация */
-}
+        .image {
+            margin-right: 20px; /* Отступ справа для картинки */
+            max-width: 100%; /* Ограничиваем максимальную ширину картинки */
+            height: auto; /* Поддерживаем пропорции изображения */
+        }
 
-@keyframes rainbow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-}
+        .text {
+            max-width: 200px; /* Максимальная ширина текста */
+        }
 
-.что328498392 {
-    display: flex; /* Горизонтальное расположение окон */
-    gap: 20px; /* Отступы между окнами */
-    justify-content: center; /* Выравнивание содержимого по центру */
-}
+        .short-text {
+            display: block; /* Отображаем короткий текст */
+        }
 
-.modal {
+        .long-text {
+            display: none; /* Скрываем длинный текст изначально */
+            opacity: 0; /* Начальная прозрачность для анимации */
+            transition: opacity 0.5s ease; /* Плавный переход прозрачности */
+        }
 
-    border-radius: 10px; /* Скругление углов */
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень */
-    max-width: 300px; /* Максимальная ширина окна */
-    transition: all 0.5s ease; /* Плавная анимация */
-}
+        .toggle-button {
+            background: none; /* Без фона */
+            border: none; /* Без границы */
+            color: rgba(0, 0, 0, 0.5); /* Цвет текста кнопки */
+            font-size: 16px; /* Размер шрифта */
+            cursor: pointer; /* Указатель при наведении */
+            text-decoration: underline; /* Подчёркнутый текст */
+            transition: color 0.3s ease; /* Плавный переход цвета */
+        }
 
-.44383283 {
-    display: flex; /* Флекс-контейнер для картинки и текста */
-}
+        .toggle-button:hover {
+            color: #ccc; /* Цвет при наведении */
+        }
 
-.image {
-    margin-right: 20px; /* Отступ справа для картинки */
-    max-width: 100%; /* Ограничиваем максимальную ширину картинки */
-    height: auto; /* Поддерживаем пропорции изображения */
-}
+        .shape-container {
+            display: flex;
+            position: relative;
+            justify-content: space-between; /* Равномерное заполнение пространства */
+        }
 
-.text {
-    max-width: 200px; /* Максимальная ширина текста */
-}
+        .left-sidebar,
+        .right-sidebar {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 20%; /* Ширина боковых панелей */
+        }
 
-/* Добавленные стили */
-.short-text {
-    display: block; /* Отображаем короткий текст */
-}
+        main {
+            flex: 1; /* Занимает доступное пространство */
+        }
 
-.long-text {
-    display: none; /* Скрываем длинный текст изначально */
-    opacity: 0; /* Начальная прозрачность для анимации */
-    transition: opacity 0.5s ease; /* Плавный переход прозрачности */
-}
+        .content {
+            display: flex;
+            flex-direction: column; /* Вертикальная ориентация на больших экранах */
+            align-items: center; /* Центрируем содержимое */
+            margin: 20px 0; /* Отступы сверху и снизу */
+        }
 
-/* Стили для кнопки */
-.toggle-button {
-    background: none; /* Без фона */
-    border: none; /* Без границы */
-    color: rgba(0, 0, 0, 0.5); /* Цвет текста кнопки */
-    font-size: 16px; /* Размер шрифта */
-    cursor: pointer; /* Указатель при наведении */
-    text-decoration: underline; /* Подчёркнутый текст */
-    transition: color 0.3s ease; /* Плавный переход цвета */
-}
+        .info-block {
+            background: black;
+            color: white;
+            width: calc(50% - 20px); /* Установить ширину блоков информации */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; /* Отступ между блоками информации */
+        }
 
-.toggle-button:hover {
-    color: #ccc; /* Цвет при наведении */
-}
+        .info-block img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px; 
+            border-radius: 10px;
+        }
 
-.chart-container {
-    background-color: rgb(0 0 0); /* Темный фон контейнера */
-    padding: 40px; /* Внутренние отступы */
-    border-radius: 10px; /* Скругление углов контейнера */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень для контейнера */
-}
+        @media (max-width: 768px) {
+            body {
 
-.chart {
-    display: flex; /* Горизонтальное расположение столбцов */
-    align-items: flex-end; /* Выравнивание столбцов по нижнему краю */
-    gap: 20px; /* Отступ между столбцами */
-    width: 80%; /* Ширина контейнера с графиком */
-    margin: 0 auto; /* Центрируем график внутри контейнера */
-}
+                zoom: 1; /* Убираем уменьшение для мобильных */
+            }
 
-.bar {
-    width: 20%; /* Ширина каждого столбца */
-    background-color: rgba(75, 192, 192, 0.7); /* Цвет столбца */
-    position: relative; /* Для позиционирования текста внутри столбца */
-}
+            header {
+                flex-direction: column; /* Вертикальное расположение для заголовка */
+                align-items: flex-start; /* Выравнивание по левому краю */
+            }
 
-.bar span {
-    position: absolute; /* Абсолютное позиционирование текста */
-    bottom: 100%; /* Позиция текста над столбцом */
-    left: 50%; /* Центрируем текст */
-    transform: translateX(-50%); /* Сдвигаем текст до центрирования */
-    color: white; /* Цвет текста */
-    font-weight: bold; /* Жирный текст */
-}
+            .sidebar {
+                width: 70%; /* Ширина боковой панели для мобильного */
+            }
 
-/* Новые стили для shape контейнеров */
-.shape-container {
-    display: flex;
-    position: relative;
-}
+            .hero-banner {
+                padding: 60px 10px; /* Уменьшаем отступы в героическом баннере */
+            }
 
-.left-sidebar {
-    left: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    clip-path: polygon(0 0, 100% 50%, 0 100%); /* Форма левой боковой панели */
-}
+            .hero-banner button {
+                padding: 8px 16px; /* Уменьшаем отступы в кнопке */
+                font-size: 14px; /* Уменьшаем размер шрифта в кнопке */
+            }
 
-.right-sidebar {
-    right: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    clip-path: polygon(100% 0, 0 50%, 100% 100%); /* Форма правой боковой панели */
-}
+            .content {
+                width: 100%; /* Ширина контента 100% на мобильных */
+            }
 
-/* Стили для ссылок */
-a {
-    color: #594f4f; /* Устанавливаем цвет текста */
-    text-decoration: none; /* Убираем подчеркивание */
-}
+            .info-block {
+                width: 100%; /* Полная ширина для блоков информации на мобильных */
+                flex-direction: column; /* Вертикальное направление */
+                align-items: center; /* Центрируем содержимое */
+                padding: 10px; /* Уменьшаем внутренние отступы */
+            }
 
-/* Исправленные стили для мобильных устройств */
-@media (max-width: 768px) {
-    body {
-        zoom: 1; /* Убираем уменьшение для мобильных */
-    }
+            .info-block img {
+                margin: 0 0 10px 0; /* Отступ только снизу */
+            }
 
-    header {
-        padding: 10px 15px; /* Уменьшаем отступы в заголовке */
-    }
+            .что328498392 {
+                flex-direction: column; /* Вертикальное расположение для мобильных */
+                align-items: center; /* Центрируем содержимое */
+            }
 
-    .hero-banner {
-        padding: 60px 10px; /* Уменьшаем отступы в героическом баннере */
-    }
+            .modal {
+                width: 90%; /* Ширина модальных окон на мобильных */
+                margin: 10px 0; /* Отступы между модальными окнами */
+            }
 
-    .hero-banner button {
-        padding: 8px 16px; /* Уменьшаем отступы в кнопке */
-        font-size: 14px; /* Уменьшаем размер шрифта в кнопке */
-    }
-
-    .content {
-        margin: 20px; /* Уменьшаем отступы для контента */
-        padding: 10px; /* Уменьшаем внутренние отступы */
-        flex-direction: column; /* Приводим элементы к колонному направлению */
-
-        align-items: center; /* Центрируем содержимое по горизонтали */
-    }
-
-    .info-block {
-        width: 100%; /* Полная ширина для блоков информации на мобильных */
-        margin-bottom: 20px; /* Отступ между блоками информации */
-    }
-
-    footer {
-        flex-direction: column; /* Вертикальное расположение для мобильных устройств */
-        align-items: center; /* Центрируем содержимое */
-        padding: 20px 10px; /* Уменьшаем отступы внизу */
-    }
-
-    .44383283 {
-        flex-direction: column; /* На мобильных экранах элементы будут располагаться вертикально */
-        align-items: center; /* Центрировать элементы по горизонтали */
-    }
-
-    /* Обновления для графиков */
-    .chart {
-        flex-direction: column; /* Изменение направления столбцов на вертикальное */
-        gap: 10px; /* Уменьшаем отступы между столбцами на мобильных */
-    }
-
-    .bar {
-        width: 100%; /* Ширина столбцов 100% на мобильных */
-    }
-
-    .text {
-        max-width: 100%; /* Максимальная ширина текста для мобильных */
-    }
-
-    .short-text,
-    .long-text {
-        font-size: 14px; /* Уменьшаем размер шрифта для текста на мобильных */
-    }
-
-    .chart {
-        width: 100%; /* Ширина 100% на мобильных */
-    }
-
-    .bar {
-        width: 80%; /* Увеличиваем ширину столбцов для мобильных */
-        margin-bottom: 10px; /* Отступ между столбцами на мобильных */
-    }
-
-    .toggle-button {
-        font-size: 14px; /* Уменьшаем размер текста для кнопок на мобильных */
-    }
-}
-
-}
-
-
-
-
+            .rainbow-text {
+                font-size: 2em; /* Уменьшаем размер шрифта для мобильных */
+            }
+        }
     </style>
 </head>
+
 <body>
 
 <header>
@@ -386,36 +304,17 @@ a {
 </header>
 
 <div class="sidebar" id="sidebar" onclick="toggleSidebar()">
- 
-    <a href="тест — копия.html">Как обезопасить себя</a>
-<a href="вебинары.html">Вебинары</a>
-  <a href="советы.html">Методы обеспечения </a>
-    <a href="oнас — копия (2).html">О нас</a>
-     <a href="регистрация.html">Регистрация</a>
-   
+    <a href="glavnua — копия.html">Как обезопасить себя</a>
+    <a href="ААААА.html">Вебинары</a>
+    <a href="удмур.html">Методы обеспечения</a>
+    <a href="oнас.html">О нас</a>
 </div>
 
 <div class="hero-banner">
- 
-
-<!-- Контент -->
-<div class="content-container">
-   
-</div>
-
-<div class="rainbow-text">
-    ИНФОРМАЦИОННАЯ БЕЗОПАСНОСТЬ
-</div>
-
-
+    <div class="content-container"></div>
+    <div class="rainbow-text">ИНФОРМАЦИОННАЯ БЕЗОПАСНОСТЬ</div>
     <button onclick="scrollToContent()">Перейти</button>
 </div>
-</div>
-
-
-
-
-
 
 <center>
 <div class="что328498392">
@@ -434,8 +333,6 @@ a {
             </div>
         </div>
     </div>
-<p>
-<p>
     <div class="modal">
         <div class="44383283">
             <img src="free-icon-cybersecurity-12251535.png" alt="Информационная безопасность" class="image">
@@ -448,6 +345,7 @@ a {
                     Узнай больше о том, как защищать свои учетные записи и избежать мошенничества...
                 </p>
                 <button class="toggle-button">Далее</button>
+
             </div>
         </div>
     </div>
@@ -467,132 +365,59 @@ a {
             </div>
         </div>
     </div>
-</div>
-</center>
-
-
-
-
-<div class="shape-container">
-    <div class="sidebar left-sidebar"></div>
-    <main class="content"></main>
-    <div class="sidebar right-sidebar"></div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="content" id="content">
+    
     <div class="info-block">
         <img src="icons8-фишинг-96.png" alt="Placeholder Image">
-        <div> В современном цифровом мире 
-информационная безопасность <p>
-становится единой из ключевых задач для пользователей.
- <p>С увеличением количества интернет-угроз, таких как вирусы,
- фишинг и кибератаки, защита конфиденциальной информации
- и личных данных приобретает критическое значение.
-<p> Интеракции в сети могут привести к утечкам данных, 
-финансовым потерям и репутационным рискам, что делает 
-информационную безопасность приоритетом.
-</div>
-
-
-
-
-
-    </div>
-    <div class="info-block">
-        <img src="cartoon-drawing-hacker-computer-information_5854123.png!f305cw" alt="Placeholder Image">
-        <div>Пройди тест по информационной безопасности!
-
- Открой для себя советы по безопасному поведению в сети!  
-
-  <a href="glavnua — копия.html">Перейти</a>
-</div>
-    </div>
-    <div class="info-block">
-        <img src="icons8-фишинг-96.png" alt="Placeholder Image" alt="Placeholder Image">
         <div>Каждый день пользователи интернет сталкиваются с множеством угроз, направленных на их данные и конфиденциальность. 
-<p>Вирусы и вредоносные программы могут уничтожить или похитить важные данные, в то время как фишинг-атаки ставят под угрозу личную информацию,
-<p> пытаясь обманом получить доступ к учетным записям. Хакеры и киберпреступники используют всё более сложные методы, чтобы обходить системы защиты, 
-<p>что подчеркивает необходимость постоянного обновления знаний и внедрения современных решений в сфере безопасности.</div>
+            <p>Вирусы и вредоносные программы могут уничтожить или похитить важные данные, в то время как фишинг-атаки ставят под угрозу личную информацию,
+            <p> пытаясь обманом получить доступ к учетным записям. Хакеры и киберпреступники используют всё более сложные методы, чтобы обходить системы защиты, 
+            <p>что подчеркивает необходимость постоянного обновления знаний и внедрения современных решений в сфере безопасности.
+        </div>
     </div>
+    
     <div class="info-block">
         <img src="cartoon-drawing-hacker-computer-information_5854123.png!f305cw" alt="Placeholder Image">
-        <div>Узнайте как обезопасить себя в сети Интернет  <a href="удмур.html">Перейти</a></div>
-
+        <div>Узнайте как обезопасить себя в сети Интернет <a href="удмур.html">Перейти</a></div>
     </div>
+    
     <div class="info-block">
-        <img src="icons8-фишинг-96.png" alt="Placeholder Image" alt="Placeholder Image">
+        <img src="icons8-фишинг-96.png" alt="Placeholder Image">
         <div>Защита информации требует комплексного подхода. <p>Использование современных технологий, таких как антивирусное ПО,
-<p> фаерволлы и шифрование данных, значительно снижает риски утечек.
-<p> Однако важно также воспитывать культуру безопасности среди пользователей:
-<p> осведомленность о потенциальных угрозах,
-<p> регулярное обновление паролей и осторожность при открытии незнакомых ссылок – всё это способствует минимизации рисков.
-<p> Защитите свою информацию и работайте над улучшением своей безопасности в цифровом пространстве!</div>
+        <p> фаерволлы и шифрование данных, значительно снижает риски утечек.
+        <p> Однако важно также воспитывать культуру безопасности среди пользователей:
+        <p> осведомленность о потенциальных угрозах,
+        <p> регулярное обновление паролей и осторожность при открытии незнакомых ссылок – всё это способствует минимизации рисков.
+        <p> Защитите свою информацию и работайте над улучшением своей безопасности в цифровом пространстве!
+        </div>
     </div>
-    <div class="info-block">
-        <img src="cartoon-drawing-hacker-computer-information_5854123.png!f305cw">
-        <div>Также узнайте самые распространненые примеры атак у мошенников  <a href="#">Перейти</a></div>
 
+    <div class="info-block">
+        <img src="cartoon-drawing-hacker-computer-information_5854123.png!f305cw" alt="Placeholder Image">
+        <div>Также узнайте самые распространеннные примеры атак у мошенников <a href="#">Перейти</a></div>
     </div>
 </div>
+<p><p><p>
 
-
-
-
-
- 
-
-<p>
-<p>
-<p>
- <h1 style="text-align: center; color: rgba(0, 0, 0, 0.5)">Статистика пострадавших от киберпреступлений</h1>
-
+<h1 style="text-align: center; color: rgba(0, 0, 0, 0.5)">Статистика пострадавших от киберпреступлений</h1>
 <div class="chart-container">
-
-<p>
-<p>
-<p>
+<p><p><p>
     <div class="chart">
- <h1 style="text-align: center; color: #fff4fa">2025 </h1>
+        <h1 style="text-align: center; color: #fff4fa">2025</h1>
         <div class="bar" style="height: 300px;"><span>Мошенничество</span></div>
         <div class="bar" style="height: 200px;"><span>Атаки хакеров</span></div>
         <div class="bar" style="height: 150px;"><span>Утечки данных</span></div>
         <div class="bar" style="height: 120px;"><span>Фишинг</span></div>
         <div class="bar" style="height: 80px;"><span>Спам</span></div>
-
     </div>
 </div>
-
-
-<p>
-<p>
-
-
-
-
-
-
+<p><p>
 
 <footer>
     <div class="about">
         <h2>О нас</h2>
-
         <p>Мы - заботимся о наших посетителях.</p>
-
-<h2>Контактная информация</h2>
-Вы можете связаться с нами по телефону:  + 7 (900) 876 - 92 - 94
+        <h2>Контактная информация</h2>
+        Вы можете связаться с нами по телефону: + 7 (900) 876 - 92 - 94
     </div>
     <div class="socials">
          <a href="https://telegram.org">Telegram</a>
@@ -602,6 +427,7 @@ a {
 
 <script>
     function toggleSidebar() {
+
         document.getElementById('sidebar').classList.toggle('active');
     }
 
@@ -619,37 +445,30 @@ a {
         }
     });
 
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.toggle-button');
+        const longTexts = document.querySelectorAll('.long-text');
 
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                const longText = longTexts[index];
 
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.toggle-button');
-    const longTexts = document.querySelectorAll('.long-text');
-
-    buttons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            const longText = longTexts[index];
-
-            if (longText.style.display === 'none' || longText.style.display === '') {
-                longText.style.display = 'block'; // Показываем длинный текст
-                setTimeout(() => {
-                    longText.style.opacity = 1; // Устанавливаем полную непрозрачность
-                }, 10); // Небольшая задержка для работы анимации
-                button.innerText = 'Скрыть'; // Меняем текст кнопки
-            } else {
-                longText.style.opacity = 0; // Уменьшаем непрозрачность
-                setTimeout(() => {
-                    longText.style.display = 'none'; // Скрываем текст после анимации
-                }, 500); // Задержка равная продолжительности анимации
-                button.innerText = 'Далее'; // Возвращаем текст кнопки
-            }
+                if (longText.style.display === 'none' || longText.style.display === '') {
+                    longText.style.display = 'block'; // Показываем длинный текст
+                    setTimeout(() => {
+                        longText.style.opacity = 1; // Устанавливаем полную непрозрачность
+                    }, 10); // Небольшая задержка для работы анимации
+                    button.innerText = 'Скрыть'; // Меняем текст кнопки
+                } else {
+                    longText.style.opacity = 0; // Уменьшаем непрозрачность
+                    setTimeout(() => {
+                        longText.style.display = 'none'; // Скрываем текст после анимации
+                    }, 500); // Задержка равная продолжительности анимации
+                    button.innerText = 'Далее'; // Возвращаем текст кнопки
+                }
+            });
         });
     });
-});
 </script>
 
 </body>
