@@ -5,21 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Информационная безопасность</title>
     <style>
-.content-container {
-    display: flex;
-    flex-wrap: wrap; /* Позволяет элементам перенаправляться при недостатке пространства */
-    justify-content: space-between; /* Размещает элементы равномерно */
-}
-
-.info-block {
-    flex: 1 1 calc(50% - 20px); /* Позволяет элементам занимать 50% ширины с учетом отступа */
-}
-
-
-
-
-        
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -28,15 +14,15 @@
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
-    
+    overflow-x: hidden; /* предотвращает горизонтальную прокрутку */
 }
 
 header {
+    display: flex; /* добавлено для корректного выравнивания элементов */
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background: rgba(0, 0, 0, 0.7);
-    position: relative;
 }
 
 .menu-icon {
@@ -71,7 +57,7 @@ header {
 .sidebar {
     position: fixed;
     top: 0;
-    right: -250px;
+    right: -250px; /* изначально скрыто */
     width: 250px;
     height: 100vh;
     background: rgba(0, 0, 0, 0.9);
@@ -88,7 +74,7 @@ header {
     color: white;
     text-decoration: none;
     display: block;
-    margin: 10px 0;
+    margin: 10px 0; /* отступ между элементами */
     transition: color 0.3s;
 }
 
@@ -145,71 +131,8 @@ header {
 .info-block img {
     width: 100px;
     height: 100px;
-    margin: 0 20px;
+    margin: 0 20px; /* отступы для изображений */
     border-radius: 10px;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-footer {
-    background-color: black;
-    color: white;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.socials a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.socials a:hover {
-    color: #ff7f00;
-}
-
-.about {
-    max-width: 400px;
-}
-
-.rainbow-text {
-    font-size: 4em; /* Размер шрифта */
-    font-weight: bold; /* Жирный текст */
-    background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%); /* Градиент */
-    -webkit-background-clip: text; /* Обрезка фона по тексту */
-    -webkit-text-fill-color: transparent; /* Прозрачный цвет текста */
-    animation: rainbow 3s infinite linear; /* Анимация */
-}
-
-@keyframes rainbow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-}
-
-.что328498392 {
-    display: flex; /* Горизонтальное расположение окон */
-    gap: 20px; /* Отступы между окнами */
-    justify-content: center; /* Выравнивание содержимого по центру */
-}
-
-.modal {
-    border-radius: 10px; /* Скругление углов */
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень */
-    max-width: 300px; /* Максимальная ширина окна */
-    transition: all 0.5s ease; /* Плавная анимация */
-}
-
-.44383283 {
-    display: flex; /* Флекс-контейнер для картинки и текста */
 }
 
 .image {
@@ -248,6 +171,7 @@ footer {
 }
 
 .chart-container {
+
     background-color: rgb(0 0 0); /* Темный фон контейнера */
     padding: 40px; /* Внутренние отступы */
     border-radius: 10px; /* Скругление углов контейнера */
@@ -297,7 +221,7 @@ footer {
 }
 
 a {
-    color: #594f4f; /* Устанавливаем цвет текста на белый */
+    color: #594f4f; /* Устанавливаем цвет текста */
     text-decoration: none; /* Убираем подчеркивание */
 }
 
@@ -319,7 +243,6 @@ a {
         padding: 8px 16px; /* Уменьшаем отступы в кнопке */
         font-size: 14px; /* Уменьшаем размер шрифта в кнопке */
     }
-
 
     .content {
         margin: 20px; /* Уменьшаем отступы для контента */
@@ -350,79 +273,7 @@ a {
     .rainbow-text {
         font-size: 3em; /* Уменьшаем размер шрифта для мобильных */
     }
-
-    .modal {
-        max-width: 90%; /* Максимальная ширина модального окна для мобильных */
-        padding: 15px; /* Уменьшаем отступы в модальном окне */
-    }
-
-    .chart {
-        flex-direction: column; /* Изменение направления столбцов на вертикальное */
-        gap: 10px; /* Уменьшаем отступы между столбцами на мобильных */
-    }
-
-    .bar {
-        width: 100%; /* Ширина столбцов 100% на мобильных */
-    }
-
-    .text {
-        max-width: 100%; /* Максимальная ширина текста для мобильных */
-    }
-
-    .short-text,
-    .long-text {
-        font-size: 14px; /* Уменьшаем размер шрифта для текста на мобильных */
-    }
 }
-        body {
-    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
-}
-img {
-    max-width: 100%;  /* Ограничьте максимальную ширину изображений */
-    height: auto;     /* Поддерживайте пропорции изображений */
-}
-.content {
-    max-width: 1200px; /* Хорошая практика, но также можно использовать 100% ширины */
-    margin: 40px auto;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.info-block {
-    background: black;
-    color: white;
-    width: calc(50% - 20px); /* Это будет работать на больших экранах, но может вызвать проблемы на маленьких */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.5s forwards;
-}
-
-@media (max-width: 768px) { /* Добавьте медиазапросы для мобильных */
-    .info-block {
-        width: calc(100% - 20px); /* Задайте ширину в 100% для мобильных устройств */
-    }
-
-    .content {
-        padding: 10px; /* Уменьшите отступы на мобильных */
-    }
-
-    .hero-banner {
-        padding: 50px 10px; /* Уменьшите поля на мобильных */
-    }
-
-    footer {
-        padding: 20px 10px; /* Уменьшите поля в подвале на мобильных */
-    }
-}
-
-
 
 
     </style>
