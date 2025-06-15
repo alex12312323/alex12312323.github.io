@@ -126,13 +126,13 @@ header {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 0.5s forwards;
+    overflow-wrap: break-word; /* Помогает переносить текст, если он выходит за границы */
 }
 
 .info-block img {
     width: 100px; /* Размер изображений */
     height: 100px;
     margin: 0 20px;
-    border-radius: 10px;
 }
 
 @keyframes fadeIn {
@@ -183,7 +183,6 @@ footer {
 .image {
     margin-right: 20px; /* Отступ справа для картинки */
     max-width: 100%; /* Ограничиваем максимальную ширину картинки */
-
     height: auto; /* Поддерживаем пропорции изображения */
 }
 
@@ -291,6 +290,7 @@ a {
         font-size: 14px; /* Уменьшаем размер шрифта в кнопке */
     }
 
+
     .content {
         margin: 20px; /* Уменьшаем отступы для контента */
         padding: 10px; /* Уменьшаем внутренние отступы */
@@ -299,7 +299,7 @@ a {
 
     .info-block {
         width: 100%; /* Каждая информация занимает 100% ширины */
-        margin-bottom: 20px; /* Отступ между блоками информации */
+        margin: 0; /* Убираем отступы между блоками информации */
     }
 
     .info-block img {
@@ -308,7 +308,6 @@ a {
     }
 
     footer {
-
         flex-direction: column; /* Переключаем на колонное направление для футера */
         align-items: center; /* Центрируем элементы футера */
         padding: 20px; /* Уменьшаем отступы в футере */
