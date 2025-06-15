@@ -5,22 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Информационная безопасность</title>
     <style>
-:root {
-    --font-size: 16px;
-}
-
-body {
-    font-size: var(--font-size);
-}
-
-@media (max-width: 768px) {
-    :root {
-        --font-size: 14px;
-    }
-}
 
  * {
-   
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -98,7 +86,7 @@ header {
 .hero-banner {
     background: rgba(0, 0, 0, 0.7);
     color: white;
-    padding: 100px 200px;
+    padding: 100px 20px;
     text-align: center;
 }
 
@@ -652,20 +640,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-    function adjustStyles() {
-    if (window.innerWidth < 768) {
-        // Изменить стили для мобильных устройств
-        document.body.classList.add('mobile');
-    } else {
-        // Изменить стили для ПК
-        document.body.classList.remove('mobile');
-    }
-}
-
-window.addEventListener('resize', adjustStyles);
-document.addEventListener('DOMContentLoaded', adjustStyles);
-
 </script>
 
 </body>
