@@ -24,7 +24,6 @@ header {
     padding: 10px 20px;
     width: 100%; /* Устанавливаем ширину заголовка */
     background: rgba(0, 0, 0, 0.7);
-    position: relative;
 }
 
 .menu-icon {
@@ -87,8 +86,13 @@ header {
 .hero-banner {
     background: rgba(0, 0, 0, 0.7);
     color: white;
-    padding: 100px 20px;
+    padding: 60px 20px; /* Уменьшенный отступ */
     text-align: center;
+}
+
+.hero-banner h1 {
+    font-size: 2.5em; /* Размер шрифта для заголовка */
+    margin-bottom: 20px; /* Отступ под заголовком */
 }
 
 .hero-banner button {
@@ -108,36 +112,30 @@ header {
 
 .content {
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 20px auto; /* Уменьшили верхний отступ */
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    animation: fadeIn 0.5s forwards;
 }
 
 .info-block {
     background: black;
     color: white;
-    flex: 1; /* Используем flex, чтобы адаптироваться к ширине */
-    min-width: calc(50% - 20px); /* Рассмотрим минимальную ширину для блоков */
-    max-width: calc(50% - 20px); /* Ограничиваем максимальную ширину блоков */
+    width: calc(50% - 20px); /* Рассмотрим не более 50% ширины */
+    max-width: 100%; /* Ограничиваем максимальную ширину блоков */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.5s forwards;
-    overflow-wrap: break-word; /* Помогаем переносить текст, если выходит за границы */
+    flex-direction: column; /* Вертикальное расположение для лучшего восприятия на мобильных */
 }
 
 .info-block img {
-    width: 100px; /* Размер изображений */
-    height: 100px;
-
-    margin: 0 20px;
+    width: 80px; /* Уменьшили размер изображений */
+    height: auto; /* Поддерживаем пропорции изображения */
+    margin: 0 0 10px 0; /* Изменили отступы */
 }
 
 @keyframes fadeIn {
@@ -152,15 +150,15 @@ footer {
     color: white;
     padding: 40px 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap; /* Позволяем элементам переноситься при необходимости */
+    justify-content: center; /* Центрируем элементы */
 }
 
 .socials a {
+
     color: white;
     margin: 0 10px;
     text-decoration: none;
-    transition: color 0.3s;
 }
 
 .socials a:hover {
@@ -281,7 +279,6 @@ a {
     }
 
     header {
-
         flex-direction: column; /* Переключение на колонное размещение */
         align-items: flex-start; /* Выравнивание по левому краю */
         padding: 10px 15px; /* Уменьшаем отступы в заголовке */
@@ -289,7 +286,13 @@ a {
     }
 
     .hero-banner {
-        padding: 60px 10px; /* Уменьшаем отступы в героическом баннере */
+
+        padding: 40px 10px; /* Уменьшаем отступы в героическом баннере */
+    }
+
+    .hero-banner h1 {
+        font-size: 1.8em; /* Уменьшаем размер заголовка на мобильных */
+        margin-bottom: 10px; /* Уменьшаем отступ под заголовком */
     }
 
     .hero-banner button {
@@ -298,20 +301,15 @@ a {
     }
 
     .content {
-        margin: 20px; /* Уменьшаем отступы для контента */
+        margin: 10px; /* Уменьшаем отступы для контента */
         padding: 10px; /* Уменьшаем внутренние отступы */
         flex-direction: column; /* Приводим элементы к колонному направлению */
     }
 
     .info-block {
         width: 100%; /* Каждая информация занимает 100% ширины */
-        min-width: auto; /* Убираем минимальную ширину для мобильных */
         margin: 0; /* Убираем отступы между блоками информации */
-    }
-
-    .info-block img {
-        width: 80px; /* Уменьшаем размер изображений для мобильных */
-        height: auto; /* Поддерживаем пропорции для мобильных */
+        padding: 10px; /* Уменьшаем внутренние отступы */
     }
 
     footer {
@@ -325,7 +323,7 @@ a {
     }
 
     .rainbow-text {
-        font-size: 3em; /* Уменьшаем размер шрифта для мобильных */
+        font-size: 2.5em; /* Уменьшаем размер шрифта для мобильных */
     }
 
     .modal {
@@ -355,7 +353,6 @@ a {
         padding: 20px; /* Уменьшаем внутренние отступы */
     }
 }
-
 
 
     </style>
