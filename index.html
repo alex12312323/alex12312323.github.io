@@ -259,25 +259,28 @@ footer {
     color: white; /* Цвет текста */
     font-weight: bold; /* Жирный текст */
 }
-
 .shape-container {
     display: flex;
     position: relative;
 }
 
 .left-sidebar {
-    left: 0;
+    position: absolute; /* Изменяем на абсолютное позиционирование */
+    left: -50px; /* Корректируем позицию, чтобы треугольник не влиял на другие элементы */
     top: 0;
     background-color: rgba(0, 0, 0, 0.5);
     clip-path: polygon(0 0, 100% 50%, 0 100%); /* Форма левой боковой панели */
 }
 
 .right-sidebar {
-    right: 0;
+    position: absolute; /* Изменяем на абсолютное позиционирование */
+    right: -50px; /* Корректируем позицию, чтобы треугольник не влиял на другие элементы */
     top: 0;
     background-color: rgba(0, 0, 0, 0.5);
     clip-path: polygon(100% 0, 0 50%, 100% 100%); /* Форма правой боковой панели */
 }
+
+        
 
 a {
     color: #594f4f; /* Устанавливаем цвет текста на белый */
