@@ -172,6 +172,19 @@ footer {
         font-size: 16px; /* Уменьшаем размер шрифта */
     }
 }
+.auth-button {
+    display: inline-block; /* Отображение как строковый блок */
+    padding: 10px 20px; /* Внутренние отступы */
+    background-color: #007bff; /* Цвет фона кнопки (синий) */
+    color: white; /* Цвет текста (белый) */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Скругленные углы */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+.auth-button:hover {
+    background-color: #0056b3; /* Темный оттенок для эффекта наведения */
+}
 
 
 
@@ -190,10 +203,13 @@ footer {
 <!-- Боковое меню -->
 <p>
 <div class="sidebar" id="sidebar">
-  <a href="#">Главная</a>
-  <a href="#">О нас</a>
-  <a href="#">Контакты</a>
-  <a href="#">Войти</a>
+   <a href="index.html">Главная</a>
+    <a href="тест — копия.html">Как обезопасить себя</a>
+<a href="вебинары.html">Вебинары</a>
+  <a href="советы.html">Методы обеспечения </a>
+    <a href="oнас — копия (2).html">О нас</a>
+   
+
 </div>
 
 <!-- Основной контент -->
@@ -204,6 +220,8 @@ footer {
     <input type="email" placeholder="Email" required />
     <input type="password" placeholder="Пароль" required />
     <button type="submit">Зарегистрироваться</button>
+      <a href="авторизация.html" class="auth-button">Уже авторизованы?</a>
+
     <div id="formMessage" style="margin-top: 15px; color: #ffcc00; font-weight: bold;"></div>
   </form>
 </div>
